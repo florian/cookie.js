@@ -6,7 +6,7 @@ This script will add an object called `cookie` to your global scope.
 ## Why would you want to use it?
 Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to simplify working with cookies and make them more fun to use.
 
-## `cookie.set()`
+## cookie.set()
 You can use the `cookie.set` method to set cookies. The value will automatically escaped for you.
 
     cookie.set('key', 'value');
@@ -32,7 +32,7 @@ The following fields can be added to the options object:
  - `path`: Limit the access to the cookie to some path. (e.g.: `dir/`.)
  - `secure`: A boolean indicating whether the cookie shall only be accessable over a secure connection.
 
-## `cookie.get()`
+## cookie.get()
 This method allows you to retrieve your cookies, you can use it by simply passing the key of the cookie:
 
     cookie.get('key');
@@ -57,11 +57,11 @@ This also works with several keys:
     // is the same as
     cookie('key');
 
-## `cookie.all()`
+## cookie.all()
 
 To get all of the currently saved cookies simply use `cookie.all`. It will return an object containing all the current cookies.
 
-## `cookie.remove()`
+## cookie.remove()
 
 This method allows you to remove cookies. It accepts an infinite number of keys or an array of keys.
 
@@ -69,7 +69,7 @@ This method allows you to remove cookies. It accepts an infinite number of keys 
     cookie.remove('key1', 'key2');
     cookie.remove(['key1', 'key2']);
 
-## `cookie.empty()`
+## cookie.empty()
 
 If you want to remove all cookies, this method is for you. Simply call `cookie.empty()` and all the cookies will be removed.
 
