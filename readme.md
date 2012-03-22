@@ -73,12 +73,12 @@ This method allows you to remove cookies. It accepts an infinite number of keys 
 
 If you want to remove all cookies, this method is for you. Simply call `cookie.empty()` and all the cookies will be removed.
 
-# Chaining
+## Chaining
 
 The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining. 
 
     cookie.empty().set('key', 'value').set('key2', 'value2').remove('key1');
 
-# Contribute
+## Contribute
 
 If you find any bugs in this script or have ideas how to improve it please let me know. You are also very welcome to contribute to the code here on github.
