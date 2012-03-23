@@ -1,13 +1,12 @@
 (function(undefined){
-    var _date = new Date(), // this is needed to correct the timezone difference - see line 37
 
     isArray = Array.isArray || function (value) { 
-        return toString.call(value) == '[object Array]';
+        return Object.prototype.toString.call(value) == '[object Array]';
     },
 
     isPlainObj = function (value) { // is value an object created with {} or new Object()?
-        return toString.call(value) == '[object Object]';
-    }
+        return Object.prototype.toString.call(value) == '[object Object]';
+    },
 
     getKeys = Object.keys || function (obj) {
         var keys = [];
@@ -28,13 +27,17 @@
 
             else {
                 options = options || {};
-                var expires = options.expires || 60 * 60 * 30,
+                var expires = options.expires || '',
                     expiresType = typeof(expires),
                     path = options.path ? ';path=' + options.path : '',
                     domain = options.domain ? ';domain=' + options.domain : '',
                     secure = options.secure ? ';secure' : '';
-                if (expiresType == 'string') expires = ';expires=' + expires;
-                else if (expiresType == 'number') expires = ';max-age=' + (expires + _date.getTimezoneOffset() * -60);
+                if (expires !== '' && expiresType == 'string') expires = ';expires=' + expires;
+                else if (expiresType == 'number') { // this is needed because IE does not support max-age
+                    var d = new Date; 
+                    d.setTime(d.getTime() + expires);
+                    expires = ';expires=' + d.toGMTString();
+                } 
                 else if (expires.hasOwnProperty('toGMTString')) expires = ';expires=' + expires.toGMTString();
                 document.cookie = key + '=' + escape(value) + expires + path + domain + secure;
             }
@@ -44,7 +47,7 @@
         remove: function (arg1) {
             var keys = isArray(arg1) ? arg1 : arguments;
             for (var i = 0, length = keys.length; i < length; i++) {
-            	this.set(keys[i], '', { expires: -3600 });
+                this.set(keys[i], '', { expires: -60 * 60 * 24 });
             }
             return this;
         },
