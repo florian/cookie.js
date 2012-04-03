@@ -1,31 +1,36 @@
-(function(undefined){
+(function (undefined) {
 
-    isArray = Array.isArray || function (value) { 
-        return Object.prototype.toString.call(value) == '[object Array]';
+    var isArray = Array.isArray || function (value) { // check if value is an array created with [] or new Array
+        return Object.prototype.toString.call(value) === '[object Array]';
     },
 
-    isPlainObj = function (value) { // is value an object created with {} or new Object()?
-        return Object.prototype.toString.call(value) == '[object Object]';
+    isPlainObj = function (value) { // check if value is an object that was created with {} or new Object
+        return Object.prototype.toString.call(value) === '[object Object]';
     },
 
-    getKeys = Object.keys || function (obj) {
-        var keys = [];
-        for(var key in obj){
+    getKeys = Object.keys || function (obj) { // Object.keys polyfill
+        var keys = [], key = '';
+        for (key in obj){
             if (obj.hasOwnProperty(key)) keys.push(key);
         }
         return keys;
     },
 
-    _cookie = {
+    retrieve = function (value, fallback) { // return fallback if the value is undefined, otherwise return value
+        return value === undefined ? fallback : value;
+    }
+    
+     _cookie = {
         
         set: function (key, value, options) {
+
             if (isPlainObj(key)) {
                 for (var k in key) {
                     this.set(k, key[k]);
                 }
-            }
 
-            else {
+            } else {
+
                 options = options || {};
                 var expires = options.expires || '',
                     expiresType = typeof(expires),
@@ -37,51 +42,72 @@
                     var d = new Date; 
                     d.setTime(d.getTime() + expires);
                     expires = ';expires=' + d.toGMTString();
-                } 
-                else if (expires.hasOwnProperty('toGMTString')) expires = ';expires=' + expires.toGMTString();
+                }  else if (expires.hasOwnProperty('toGMTString')) expires = ';expires=' + expires.toGMTString();
+
                 document.cookie = key + '=' + escape(value) + expires + path + domain + secure;
+
             }
-            return this;
+
+            return this; // return the _cookie object to allow chaining
+
         },
 
         remove: function (arg1) {
+
             var keys = isArray(arg1) ? arg1 : arguments;
             for (var i = 0, length = keys.length; i < length; i++) {
                 this.set(keys[i], '', { expires: -60 * 60 * 24 });
             }
-            return this;
+
+            return this; // return the _cookie object to allow chaining
+
         },
 
         empty: function () {
-            return this.remove(getKeys(this.all()));
+
+            return this.remove(getKeys(this.all())); // return the _cookie object to allow chaining
+
         },
 
         get: function (key, fallback) {
+
             fallback = fallback || undefined;
+
             if (isArray(key)) {
-                var result = {};
+
+                var result = {},
+                     cookies = this.all();
+                
                 for (var i = 0, l = key.length; i < l; i++) {
                     var value = key[i];
-                    result[value] = this.get(value, fallback);
+                    result[value] = retrieve(cookies[value], fallback);
                 }
+
                 return result;
+
+
+            } else {
+
+                var cookies = this.all();
+                return retrieve(cookies[key], fallback);
+
             }
-            else {
-                var cookies = this.all(),
-                    value = cookies[key];
-                return value == undefined ? fallback : value;
-            }
+
         },
 
         all: function () {
+
             if (document.cookie == '') return {};
+
             var match = document.cookie.split('; '),
                 results = {};
             for (var i = 0, l = match.length; i < l; i++) {
                 var tmp = match[i].split('=');
                 results[tmp[0]] = unescape(tmp[1]);
             }
+
             return results;
+
         }
 
     },
