@@ -1,4 +1,4 @@
-#  cookie.js – simplifying JavaScript cookies
+#  cookie.js – simplifying cookies in JavaScript
 cookie.js is a tiny JavaScript library that simplifies cookies. It's capable of setting, getting and removing cookies, accepts a variety of parameters and supports chaining. cookie.js is released under the MIT/X11 license. It doesn't have any dependencies and if minified it's only ~1.4 KiB large.
 
 This script will add an object called `cookie` to your global scope. 
@@ -21,7 +21,7 @@ You can also set several values at once:
 If you need more options, like setting the expiry date, you can add an object with options as the 3rd parameter:
 
     cookie.set('key', 'value', {
-        expires: 60 * 60 * 7, // expires in one week
+        expires: 60 * 60 * 24 * 7, // expires in one week
     });
 
 The following fields can be added to the options object:
