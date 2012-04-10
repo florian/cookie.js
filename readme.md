@@ -1,5 +1,5 @@
 #  cookie.js – simplifying cookies in JavaScript
-cookie.js is a tiny JavaScript library that simplifies cookies. It's capable of setting, getting and removing cookies, accepts a variety of parameters and supports chaining. cookie.js is released under the MIT/X11 license. It doesn't have any dependencies and if minified it's only ~1.4 KiB large.
+cookie.js is a tiny JavaScript library that simplifies cookies. It's capable of setting, getting and removing cookies, accepts a variety of parameters and supports chaining. cookie.js is released under the [MIT/X11 license](blob/master/license). It doesn't have any dependencies and if minified it's only ~1.4 KiB large (~0.7 KiB if minified and gzipped).
 
 This script will add an object called `cookie` to your global scope. 
 
@@ -18,18 +18,18 @@ You can also set several values at once:
         key2: 'value2'
     });
 
-If you need more options, like setting the expiry date, you can add an object with options as the 3rd parameter:
+If you need more options, like setting the expiry date, you can add an object with options as the third parameter:
 
     cookie.set('key', 'value', {
         expires: 60 * 60 * 24 * 7, // expires in one week
     });
 
-The following fields can be added to the options object:
+The following fields can be added to the mentioned object:
 
  - `expires`: Either a number containing the seconds until the expiry, a
-   date in the GMTString format or a date object. (e.g.: `60 * 60 * 24 * 7` for a week.)
- - `domain`: Allow other domains to access your cookie. (e.g.: `example.com`.)
- - `path`: Limit the access to the cookie to some path. (e.g.: `dir/`.)
+   date in the GMTString format or a date object. (e.g.: `60 * 60 * 24 * 7` for a week.) If you omit this field the cookie will be removed when the browser closes.
+ - `domain`: Allow other domains to access your cookie. (e.g.: `example.com`.) The default value is the current domain.
+ - `path`: Limit the access to the cookie to some path. (e.g.: `dir/`.) The default value is the current domain.
  - `secure`: A boolean indicating whether the cookie shall only be accessable over a secure connection.
 
 ## cookie.get()
@@ -59,7 +59,9 @@ This also works with several keys:
 
 ## cookie.all()
 
-To get all of the currently saved cookies simply use `cookie.all`. It will return an object containing all the current cookies.
+    var cookies = cookie.all()
+
+To get all of the currently saved cookies simply call `cookie.all`. In this case the variable `cookies` will return an object with all the current cookies.
 
 ## cookie.remove()
 
@@ -71,7 +73,17 @@ This method allows you to remove cookies. It accepts an infinite number of keys 
 
 ## cookie.empty()
 
-If you want to remove all cookies, this method is for you. Simply call `cookie.empty()` and all the cookies will be removed.
+Sometimes you may want to remove all cookies. Simply call `cookie.empty()` and every cookie will be removed.
+
+## cookie.enabled()
+
+This method allows you to test if the cookies are enabled. It returns `true` if you can work with cookies and `false` if you cannot. You might want to use a fallback if they are disabled:
+
+    if (cookie.enabled()) {
+       // Do stuff with cookies
+    } else {
+       // Display error message or use localStorage
+    }
 
 ## Chaining
 
