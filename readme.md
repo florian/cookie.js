@@ -9,7 +9,7 @@ Working with cookies in JavaScript sucks. `document.cookie` is definitely one of
 ## Getting started
 
 1.  Download [cookie.min.js](https://raw.github.com/js-coder/cookie.js/master/cookie.min.js).
--   Insert it in your HTML: `<script src="cookie.min.js"></script>`
+-   Insert it into your HTML: `<script src="cookie.min.js"></script>`
 -   Call the `cookie` methods that are described in the following.
 
 Make sure that you insert the script before calling the methods.
