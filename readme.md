@@ -1,5 +1,5 @@
 #  cookie.js – simplifying cookies in JavaScript
-cookie.js is a tiny JavaScript library that simplifies cookies. It's capable of setting, getting and removing cookies, accepts a variety of parameters and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/js-coder/cookie.js/blob/master/license). It doesn't have any dependencies and if minified it's only ~1.4 KiB large (~0.7 KiB if minified and gzipped).
+cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/js-coder/cookie.js/blob/master/license). It doesn't have any dependencies and if minified it's only ~1.4 KiB large (~0.7 KiB if minified and gzipped).
 
 This script will add an object called `cookie` to your global scope. 
 
@@ -7,7 +7,7 @@ This script will add an object called `cookie` to your global scope.
 Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to simplify working with cookies and make them more fun to use.
 
 ## cookie.set()
-You can use the `cookie.set` method to set cookies. The value will automatically escaped for you.
+You can use the `cookie.set` method to set cookies. The value will automatically be escaped for you.
 
     cookie.set('key', 'value');
 
