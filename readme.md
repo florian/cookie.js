@@ -1,5 +1,5 @@
 #  cookie.js – simplifying cookies in JavaScript
-cookie.js is a tiny JavaScript library that simplifies cookies. It's capable of setting, getting and removing cookies, accepts a variety of parameters and supports chaining. cookie.js is released under the [MIT/X11 license](blob/master/license). It doesn't have any dependencies and if minified it's only ~1.4 KiB large (~0.7 KiB if minified and gzipped).
+cookie.js is a tiny JavaScript library that simplifies cookies. It's capable of setting, getting and removing cookies, accepts a variety of parameters and supports chaining. cookie.js is released under the [MIT/X11 license](cookie.js/blob/master/license). It doesn't have any dependencies and if minified it's only ~1.4 KiB large (~0.7 KiB if minified and gzipped).
 
 This script will add an object called `cookie` to your global scope. 
 
