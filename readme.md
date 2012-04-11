@@ -6,13 +6,15 @@ This script will add an object called `cookie` to your global scope.
 ## Why would you want to use it?
 Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to simplify working with cookies and make them more fun to use.
 
-## Getting started
+## Usage
 
-1.  Download [cookie.min.js](https://raw.github.com/js-coder/cookie.js/master/cookie.min.js).
--   Insert it into your HTML: `<script src="cookie.min.js"></script>`
--   Call the `cookie` methods that are described in the following.
+Download [cookie.min.js](https://raw.github.com/js-coder/cookie.js/master/cookie.min.js) and include it in your HTML document:
 
-Make sure that you insert the script before calling the methods.
+```html
+<script src="cookie.min.js"></script>
+```
+
+After that you can call any of methods that are explained in the following.
 
 ## cookie.set()
 You can use the `cookie.set` method to set cookies. The value will automatically be escaped for you.
