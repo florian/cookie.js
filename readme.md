@@ -79,7 +79,7 @@ cookie.get(['key1', 'key2'], 'default value');
 
 ```javascript
 cookie.get('key'); 
-// is the same as#  cookie.js – simplifying cookies in JavaScript
+// is the same as
 cookie('key');
 ```
 
