@@ -16,8 +16,6 @@ Download [cookie.min.js](https://raw.github.com/js-coder/cookie.js/master/cookie
 
 After that you can call any of methods that are explained in the following.
 
-<<<<<<< HEAD
-=======
 ## cookie.set()
 You can use the `cookie.set` method to set cookies. The value will automatically be escaped for you.
 
@@ -190,45 +188,6 @@ The methods `set`, `remove` and `empty` return the cookie object and therefore e
 ```javascript
 cookie.empty().set('key', 'value').set('key2', 'value2').remove('key1');
 ```
-
-## Contribute
-
-If you find any bugs in this script or have ideas how to improve it please let me know. You are also very welcome to contribute to the code here on github.
-    cookie('key');
-
-## cookie.all()
-
-    var cookies = cookie.all()
-
-To get all of the currently saved cookies simply call `cookie.all`. In this case the variable `cookies` will return an object with all the current cookies.
-
-## cookie.remove()
-
-This method allows you to remove cookies. It accepts an infinite number of keys or an array of keys.
-
-    cookie.remove('key');
-    cookie.remove('key1', 'key2');
-    cookie.remove(['key1', 'key2']);
-
-## cookie.empty()
-
-Sometimes you may want to remove all cookies. Simply call `cookie.empty()` and every cookie will be removed.
-
-## cookie.enabled()
-
-This method allows you to test if the cookies are enabled. It returns `true` if you can work with cookies and `false` if you cannot. You might want to use a fallback if they are disabled:
-
-    if (cookie.enabled()) {
-       // Do stuff with cookies
-    } else {
-       // Display error message or use localStorage
-    }
-
-## Chaining
-
-The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining. 
-
-    cookie.empty().set('key', 'value').set('key2', 'value2').remove('key1');
 
 ## Contribute
 
