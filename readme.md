@@ -19,20 +19,26 @@ After that you can call any of methods that are explained in the following.
 ## cookie.set()
 You can use the `cookie.set` method to set cookies. The value will automatically be escaped for you.
 
-    cookie.set('key', 'value');
+```javascript
+cookie.set('key', 'value');
+```
 
 You can also set several values at once:
 
-    cookie.set({
-        key1: 'value1',
-        key2: 'value2'
-    });
+```javascript
+cookie.set({
+   key1: 'value1',
+   key2: 'value2'
+});
+```
 
 If you need more options, like setting the expiry date, you can add an object with options as the third parameter:
 
-    cookie.set('key', 'value', {
-        expires: 60 * 60 * 24 * 7, // expires in one week
-    });
+```javascript
+cookie.set('key', 'value', {
+   expires: 60 * 60 * 24 * 7, // expires in one week
+});
+```
 
 The following fields can be added to the mentioned object:
 
@@ -45,27 +51,37 @@ The following fields can be added to the mentioned object:
 ## cookie.get()
 This method allows you to retrieve your cookies, you can use it by simply passing the key of the cookie:
 
-    cookie.get('key');
+```javascript
+cookie.get('key');
+```
 
 Passing just one key like this will return a string, containing the value of the cookie. You can also pass an array of keys:
 
-    cookie.get['key1', 'key2']);
+```javascript
+cookie.get['key1', 'key2']);
+```
 
 This will always return an object. The keys of this object will be the keys you passed and the values are the corresponding values.
 
 In case you want to add a default value you can use the second parameter. The default value will be returned if the cookie*(s)* could not be found:
 
-    cookie.get('key', 'default value');
+```javascript
+cookie.get('key', 'default value');
+```
 
 This also works with several keys:
 
-    cookie.get(['key1', 'key2'], 'default value');
+```javascript
+cookie.get(['key1', 'key2'], 'default value');
+```
 
 `cookie()` is a shortcut for `cookie.get()`. 
 
-    cookie.get('key'); 
-    // is the same as#  cookie.js – simplifying cookies in JavaScript
-    cookie('key');
+```javascript
+cookie.get('key'); 
+   // is the same as#  cookie.js – simplifying cookies in JavaScript
+cookie('key');
+```
 
 ## cookie.all()
 
