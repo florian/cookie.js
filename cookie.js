@@ -48,7 +48,7 @@
          if (expiresType === 'string' && expires !== '') expires = ';expires=' + expires;
          else if (expiresType == 'number') { // this is needed because IE does not support max-age
             var d = new Date;
-            d.setTime(d.getTime() + expires);
+            d.setTime(d.getTime() + 60 * 60 * 24 * expires);
             expires = ';expires=' + d.toGMTString();
          } else if (expires.hasOwnProperty('toGMTString')) expires = ';expires=' + expires.toGMTString();
 
