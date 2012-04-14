@@ -36,17 +36,18 @@ If you need more options, like setting the expiry date, you can add an object wi
 
 ```javascript
 cookie.set('key', 'value', {
-   expires: 60 * 60 * 24 * 7, // expires in one week
+   expires: 7, // expires in one week
 });
 ```
 
 The following fields can be added to the mentioned object:
 
- - `expires`: Either a number containing the seconds until the expiry, a
-   date in the GMTString format or a date object. (e.g.: `60 * 60 * 24 * 7` for a week.) If you omit this field the cookie will be removed when the browser closes.
- - `domain`: Allow other domains to access your cookie. (e.g.: `example.com`.) The default value is the current domain.
- - `path`: Limit the access to the cookie to some path. (e.g.: `dir/`.) The default value is the current domain.
- - `secure`: A boolean indicating whether the cookie shall only be accessable over a secure connection.
+| key | value | default value |
+|:--|:--|:--|
+| `expires` |  Either a `number` containing the days until the expiry, a date in the `GMTString` format or a `date object`. | Expires when the browser is closed. |
+| `domain` |  A `string` that specifies the domain that can access the cookie. | The current domain. |
+| `path` | A `string` that limits the access of the cookie to that path. | The current path. |
+| `secure` | A `boolean` indicating whether the cookie shall only be accessable over a secure connection or not. | `false` |
 
 ## cookie.get()
 This method allows you to retrieve your cookies, you can use it by simply passing the key of the cookie:
@@ -58,7 +59,7 @@ cookie.get('key');
 Passing just one key like this will return a string, containing the value of the cookie. You can also pass an array of keys:
 
 ```javascript
-cookie.get['key1', 'key2']);
+cookie.get(['key1', 'key2']);
 ```
 
 This will always return an object. The keys of this object will be the keys you passed and the values are the corresponding values.
@@ -86,7 +87,7 @@ cookie('key');
 ## cookie.all()
 
 ```javascript
-var cookies = cookie.all()
+var cookies = cookie.all();
 ```
 
 To get all of the currently saved cookies simply call `cookie.all`. In this case the variable `cookies` will return an object with all the current cookies.
