@@ -3,7 +3,7 @@
    var utils = {
       
       isArray: Array.isArray || function (value) { // check if value is an array created with [] or new Array
-         return value instanceof Array;
+         return Object.prototype.toString.call(value) === '[object Array]';
       },
 
       isPlainObj: function (value) { // check if value is an object that was created with {} or new Object
@@ -64,7 +64,7 @@
       
       keys = utils.isArray(keys) ? keys : arguments;
 
-      for (var u = 0, l = keys.length; i < l; i++) {
+      for (var i = 0, l = keys.length; i < l; i++) {
          this.set(keys[i], '', {
             expires: -60 * 60 * 24
          });
