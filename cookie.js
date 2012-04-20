@@ -62,7 +62,7 @@
 
    cookie.remove = function (keys) {
       
-      keys = utils.isArray(keys) ? keys : arguments;
+      keys = utils.isArray(keys) ? keys : Array.prototype.slice.call(arguments);
 
       for (var i = 0, l = keys.length; i < l; i++) {
          this.set(keys[i], '', {
@@ -90,7 +90,7 @@
          var result = {};
 
          for (var i = 0, l = keys.length; i < l; i++) {
-            var value = key[i];
+            var value = keys[i];
             result[value] = utils.retrieve(cookies[value], fallback);
          }
 
