@@ -74,8 +74,8 @@
          });
       }
 
-      return this; // to allow chaining
 
+      return this; // to allow chaining
    };
 
    cookie.empty = function () {
