@@ -1,16 +1,20 @@
-(function (document, undefined) {
+;(function (document, undefined) {
 
    var utils = {
       
-      isArray: Array.isArray || function (value) { // check if value is an array created with [] or new Array
+      isArray: Array.isArray || function (value) { // Checks if `value` is an array created with `[]` or `new Array`.
          return Object.prototype.toString.call(value) === '[object Array]';
       },
-
-      isPlainObj: function (value) { // check if value is an object that was created with {} or new Object
-         return Object.prototype.toString.call(value) === '[object Object]';
+      
+      isPlainObj: function (value) { // Checks if `value` is an object that was created with `{}` or `new Object`.
+         return value === Object(value);
+      },
+      
+      toArray: function (value) { // Converts an array-like object to an array - for example `arguments`.
+         return Array.prototype.slice.call(value);
       },
 
-      getKeys: Object.keys || function (obj) { // Object.keys polyfill
+      getKeys: Object.keys || function (obj) { // Get the keys of an object.
          var keys = [],
              key = '';
          for (key in obj) {
@@ -19,7 +23,7 @@
          return keys;
       },
 
-      retrieve: function (value, fallback) { // return fallback if the value is undefined, otherwise return value
+      retrieve: function (value, fallback) { // Returns fallback if the value is undefined, otherwise value.
          return value === undefined ? fallback : value;
       }
 
@@ -52,7 +56,7 @@
             expires = ';expires=' + d.toGMTString();
          } else if (expires.hasOwnProperty('toGMTString')) expires = ';expires=' + expires.toGMTString();
 
-         document.cookie = key + '=' + escape(value) + expires + path + domain + secure;
+         document.cookie = escape(key) + '=' + escape(value) + expires + path + domain + secure;
 
       }
 
@@ -62,11 +66,11 @@
 
    cookie.remove = function (keys) {
       
-      keys = utils.isArray(keys) ? keys : Array.prototype.slice.call(arguments);
+      keys = utils.isArray(keys) ? keys : utils.toArray(arguments);
 
       for (var i = 0, l = keys.length; i < l; i++) {
          this.set(keys[i], '', {
-            expires: -60 * 60 * 24
+            expires: -1
          });
       }
 
