@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QUnit Test Suite: cookie.js</title>
+	<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css" type="text/css" media="screen">  
+	<script src="http://code.jquery.com/qunit/qunit-git.js"></script>  
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="cookie.js"></script>
+	<script>
+		module("get/set single value cookies",{
+		  setup: function() {
+		  	cookie.set('key', 'value');
+		    this.testCookie = cookie.get('key');
+		  },
+		  teardown: function() {
+		    cookie.remove('key');
+		    equal(cookie.get('key'), undefined);
+		  }
+		});
+		test('set() get()', function(){
+			expect(3);
+			equal(cookie.get('key'), this.testCookie);
+			notEqual(cookie.get('key'), 'monster', "Couldn't find cookie 'monster'.");
+		});
+
+
+		module("get/set multiple value cookies",{
+		  setup: function() {
+		  	var myCookie = {
+		  		key1: 'value1',
+		  		key2: 'value2'
+		  	};
+		  	cookie.set(myCookie);
+		  	// Set local reference to test against
+		  	this.testCookieObj = myCookie;
+		    this.testCookie = cookie.get('key1', 'key2');
+		  },
+		  teardown: function() {
+		    cookie.remove('key1', 'key2');
+		    equal(cookie.get('key1'), undefined);
+		    equal(cookie.get('key2'), undefined);
+		  }
+		});
+		test('set() get()', function(){
+			expect(4);
+			equal(cookie.get('key1'), this.testCookieObj.key1);
+			equal(cookie.get('key2'), this.testCookieObj.key2);
+		});
+	</script>
+</head>
+<body>
+	<h1 id="qunit-header">QUnit Test Suite</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+</body>
+</html>
