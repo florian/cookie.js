@@ -7,32 +7,35 @@
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script src="cookie.js"></script>
 	<script>
-		module("get/set single value cookies",{
+		module("get/set/remove single String value cookie",{
 		  setup: function() {
-		  	cookie.set('key', 'value');
-		    this.testCookie = cookie.get('key');
+		  	var val = 'value';
+		  	// Set sample cookie
+		  	cookie.set('key', val);
+		    this.testCookie = val;
 		  },
 		  teardown: function() {
 		    cookie.remove('key');
+		    // Ensure removal
 		    equal(cookie.get('key'), undefined);
 		  }
 		});
 		test('set() get()', function(){
-			expect(3);
+			expect(4);
 			equal(cookie.get('key'), this.testCookie);
+			equal(cookie('key'), this.testCookie, "Calling using cookie('key')");
 			notEqual(cookie.get('key'), 'monster', "Couldn't find cookie 'monster'.");
 		});
 
 
-		module("get/set multiple value cookies",{
+		module("get/set/remove object of key/value cookies",{
 		  setup: function() {
-		  	var myCookie = {
+		  	var cookieObj = {
 		  		key1: 'value1',
 		  		key2: 'value2'
 		  	};
-		  	cookie.set(myCookie);
-		  	// Set local reference to test against
-		  	this.testCookieObj = myCookie;
+		  	cookie.set(cookieObj);
+		  	this.testCookieObj = cookieObj;
 		    this.testCookie = cookie.get('key1', 'key2');
 		  },
 		  teardown: function() {
@@ -42,9 +45,14 @@
 		  }
 		});
 		test('set() get()', function(){
-			expect(4);
+			expect(7);
 			equal(cookie.get('key1'), this.testCookieObj.key1);
 			equal(cookie.get('key2'), this.testCookieObj.key2);
+
+			equal(cookie('key1'), this.testCookieObj.key1, "Calling using cookie('key')");
+			equal(cookie('key2'), this.testCookieObj.key2, "Calling using cookie('key')");
+
+			notEqual(cookie('key'), 'monster', "Couldn't find cookie 'monster'.");
 		});
 	</script>
 </head>
