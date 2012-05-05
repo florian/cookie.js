@@ -107,6 +107,13 @@ test('([key1, key2])', function () {
 	});
 })
 
+/*
+
+The tests of the two following modules will fail on http://js-coder.github.com/cookie.js/tests/ 
+because GitHub adds some cookies for the statistics that cannot be removed.
+If you run the tests locally, you can uncomment these two modules. They should just run fine in a
+clean environment.
+
 module('cookie.empty');
 
 test('()', function () {
@@ -126,3 +133,5 @@ test('()', function () {
 		i: '9'
 	});
 });
+
+*/
