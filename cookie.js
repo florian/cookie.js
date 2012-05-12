@@ -1,4 +1,6 @@
-;(function (document, undefined) {
+// Copyright (c) 2012 Florian H., https://github.com/js-coder https://github.com/js-coder/cookie.js
+
+!function (document, undefined) {
 
    var utils = {
       
@@ -29,7 +31,7 @@
 
    };
    
-   window.cookie = function () {
+   var cookie = function () {
       return cookie.get.apply(cookie, arguments);
    };
 
@@ -128,4 +130,10 @@
 
    };
 
-}(document));
+   if (typeof define === 'function' && define.amd) {
+      define(function () {
+         return cookie;
+      });
+   } else window.cookie = cookie;
+
+}(document);
