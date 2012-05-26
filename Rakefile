@@ -10,7 +10,8 @@ task :build do
     source = File.read('cookie.js')
     header = source.match(HEADER)
     min = Closure::Compiler.new.compress(source)
+    result = header[1] + (min[-1] == "\n" ? min[0..-2] : min)
     File.open('cookie.min.js', 'w') do |file|
-        file.write header[1] + min[0..-2]
+        file.write result
     end
 end
