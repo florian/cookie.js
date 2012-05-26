@@ -34,6 +34,12 @@
    var cookie = function () {
       return cookie.get.apply(cookie, arguments);
    };
+   
+   var escape = function (text) {
+      return text.replace(/[,;"=\s\\]/g, function (x) {
+         return encodeURIComponent(x);
+      });
+   };
 
    cookie.set = function (key, value, options) {
       
