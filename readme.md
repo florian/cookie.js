@@ -1,11 +1,9 @@
-#  cookie.js – simplifying cookies in JavaScript
+#  cookie.js–simplifying cookies in JavaScript
 
 cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/js-coder/cookie.js/blob/master/license). It doesn't have any dependencies and if minified it's only ~1.4 KiB large (~0.7 KiB if minified and gzipped).
 
-This script will add an object called `cookie` to your global scope. 
-
 ## Why would you want to use it?
-Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to simplify working with cookies and make them more fun to use.
+Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to provide an easy and nevertheless powerful way to use cookies.
 
 ## Usage
 
@@ -14,6 +12,15 @@ Download [cookie.min.js](https://raw.github.com/js-coder/cookie.js/master/cookie
 ```html
 <script src="cookie.min.js"></script>
 ```
+
+If you include cookie.js as above, this script will add an object called `cookie` to your global scope.
+
+---
+
+cookie.js also supports AMD. So if you want to include cookie.js dynamically, you can just require it with any AMD loader, for example [RequireJS](http://requirejs.org/).
+Follow the instructions of your AMD loader to include cookie.js.
+
+---
 
 After that you can call any of methods that are explained in the following.
 
