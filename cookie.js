@@ -36,7 +36,7 @@
    };
    
    var escape = function (text) {
-      return text.replace(/[,;"=\s\\]g/, function (x) {
+      return text.replace(/[,;"=\s\\]/g, function (x) {
          return encodeURIComponent(x);
       });
    };
