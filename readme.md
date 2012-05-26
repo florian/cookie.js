@@ -131,9 +131,18 @@ if (cookie.enabled()) {
 The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining. 
 
 ```javascript
-cookie.empty().set('key', 'value').set('key2', 'value2').remove('key1');
+cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
 ```
 
 ## Contribute
 
-If you find any bugs in this script or have ideas how to improve it please let me know. You are also very welcome to contribute to the code here on github.
+If you find any bugs in this script or have ideas how to improve it please let me know by creating an [issue](https://github.com/js-coder/cookie.js/issues). 
+
+You are also very welcome to contribute to the code here on github, take a look at the [roadmap](https://github.com/js-coder/cookie.js/blob/master/roadmap.md) to see what features are planned. Use Rake if you want to easily minify cookie.js after making changes. All you need is Ruby, [Rake](http://rake.rubyforge.org/), the [closure-compiler](https://github.com/documentcloud/closure-compiler) gem and the [Rakefile](https://github.com/js-coder/cookie.js/blob/master/Rakefile).
+
+```bash
+$ rake -T # Shows all available tasks. Right now there's just `build` available.
+$ rake build # Minifies cookie.js, prepends the copyright and then writes the result to cookie.min.js.
+```
+
+In case you don't want to use this command line tool, please make sure to minify using the [Google Closure Compiler](http://closure-compiler.appspot.com/home) with advanced optimization enabled.
