@@ -4,11 +4,11 @@
 
    var utils = {
 
-      isArray: Array.isArray || function (value) { // Checks if `value` is an array created with `[]` or `new Array`.
+      isArray: Array.isArray || function (value) {
          return Object.prototype.toString.call(value) === '[object Array]';
       },
 
-      isPlainObj: function (value) { // Checks if `value` is an object that was created with `{}` or `new Object`.
+      isObject: function (value) {
          return value === Object(value);
       },
 
@@ -37,7 +37,7 @@
 
    cookie.set = function (key, value, options) {
 
-      if (utils.isPlainObj(key)) {
+      if (utils.isObject(key)) {
 
          for (var k in key) {
             if (key.hasOwnProperty(k)) this.set(k, key[k]);
