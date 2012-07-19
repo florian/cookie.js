@@ -1,6 +1,6 @@
 #  cookie.js–simplifying cookies in JavaScript
 
-cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/js-coder/cookie.js/blob/master/license). It doesn't have any dependencies and if minified it's only ~1.4 KiB large (~0.7 KiB if minified and gzipped).
+cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/js-coder/cookie.js/blob/master/license). It doesn't have any dependencies and minified and gzipped it's only 0.9 KB small.
 
 ## Why would you want to use it?
 Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to provide an easy and nevertheless powerful way to use cookies.
@@ -17,8 +17,8 @@ If you include cookie.js as above, this script will add an object called `cookie
 
 ---
 
-cookie.js also supports AMD. So if you want to include cookie.js dynamically, you can just require it with any AMD loader, for example [RequireJS](http://requirejs.org/).
-Follow the instructions of your AMD loader to include cookie.js.
+cookie.js also supports AMD and CommonJS. So if you want to include cookie.js dynamically, you can just require it with any AMD / CommonJS loader, for example [RequireJS](http://requirejs.org/) for AMD.
+Follow the instructions of your loader to include cookie.js.
 
 ---
 
@@ -46,6 +46,14 @@ If you need more options, like setting the expiry date, you can add an object wi
 cookie.set('key', 'value', {
    expires: 7, // expires in one week
 });
+
+cookie.set({
+	key1: 'value1',
+	key2: 'value2',
+	{
+		expires: 7
+	}
+})
 ```
 
 The following fields can be added to the mentioned object:
@@ -56,6 +64,21 @@ The following fields can be added to the mentioned object:
 | `domain` |  A `string` that specifies the domain that can access the cookie. | The current domain. |
 | `path` | A `string` that limits the access of the cookie to that path. | The current path. |
 | `secure` | A `boolean` indicating whether the cookie shall only be accessable over a secure connection or not. | `false` |
+
+You can customize the default settings by manipulating `cookie.defaults`.
+
+```javascript
+cookie.defaults.expires = 7;
+cookie.defaults.secure = true;
+```
+
+Most people will prefer specifying the expiry date in days, but if you want to specify the expiry date in minutes, then you can configure `cookie.expiresMultiplier`:
+
+```javascript
+cookie.expiresMultiplier = 60; // Seconds.
+cookie.expiresMultiplier = 60 * 60; // Minutes.
+cookie.expiresMultiplier = 60 * 60 * 24; // Hours.
+```
 
 ## cookie.get()
 This method allows you to retrieve your cookies, you can use it by simply passing the key of the cookie:
@@ -84,10 +107,10 @@ This also works with several keys:
 cookie.get(['key1', 'key2'], 'default value');
 ```
 
-`cookie()` is a shortcut for `cookie.get()`. 
+`cookie()` is a shortcut for `cookie.get()`.
 
 ```javascript
-cookie.get('key'); 
+cookie.get('key');
 // is the same as
 cookie('key');
 ```
@@ -128,7 +151,7 @@ if (cookie.enabled()) {
 
 ## Chaining
 
-The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining. 
+The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining.
 
 ```javascript
 cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
@@ -136,13 +159,18 @@ cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
 
 ## Contribute
 
-If you find any bugs in this script or have ideas how to improve it please let me know by creating an [issue](https://github.com/js-coder/cookie.js/issues). 
+If you find any bugs in this script or have ideas how to improve it please let me know by creating an [issue](https://github.com/js-coder/cookie.js/issues).
 
-You are also very welcome to contribute to the code here on github, take a look at the [roadmap](https://github.com/js-coder/cookie.js/blob/master/roadmap.md) to see what features are planned. Use Rake if you want to easily minify cookie.js after making changes. All you need is Ruby, [Rake](http://rake.rubyforge.org/), the [closure-compiler](https://github.com/documentcloud/closure-compiler) gem and the [Rakefile](https://github.com/js-coder/cookie.js/blob/master/Rakefile).
+You are also very welcome to contribute to the code here on github, take a look at the [roadmap](https://github.com/js-coder/cookie.js/blob/master/roadmap.md) to see what features are planned. Use grunt if you want to easily minify cookie.js after making changes or want to lint it. All you need is [node.js](http://nodejs.org), [grunt](https://github.com/cowboy/grunt) and the [gruntfile](https://github.com/js-coder/cookie.js/blob/master/grunt.js). You'll also need [phantomjs](http://phantomjs.org/) to run the QUnit tests with grunt.
 
 ```bash
-$ rake -T # Shows all available tasks. Right now there's just `build` available.
-$ rake build # Minifies cookie.js, prepends the copyright and then writes the result to cookie.min.js.
+$ grunt # Lints the code, runs the QUnit tests and then minifies it. You should always do this before pushing your changes.
+
+$ grunt lint # Checks if JSHint detects any errors.
+$ grunt qunit # Runs QUnit tests.
+$ grunt min # Minifies cookie.js, prepends the copyright and then writes the result to cookie.min.js.
+
+$ grunt watch # Runs the lint and QUnit tasks everytime cookie.js is saved.
 ```
 
-In case you don't want to use this command line tool, please make sure to minify using the [Google Closure Compiler](http://closure-compiler.appspot.com/home) with advanced optimization enabled.
+In case you don't want to use grunt, please make sure to minify using [UglifyJS](http://marijnhaverbeke.nl/uglifyjs/) and to unit test / lint your code.
