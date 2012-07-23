@@ -1,9 +1,9 @@
 cookie.empty(); // Make sure no cookies exist when the test begins.
 
-module('cookie.set')
+module('cookie.set');
 
 test('(key, value)', function () {
-	cookie.set('a', '1')
+	cookie.set('a', '1');
 	equal(cookie.get('a'), cookie.get('a'));
 });
 
@@ -105,11 +105,11 @@ test('([key1, key2])', function () {
 		d: undefined,
 		e: undefined
 	});
-})
+});
 
 /*
 
-The tests of the two following modules will fail on http://js-coder.github.com/cookie.js/tests/ 
+The tests of the two following modules will fail on http://js-coder.github.com/cookie.js/tests/
 because GitHub adds some cookies for the statistics that cannot be removed.
 If you run the tests locally, you can uncomment these two modules. They should just run fine in a
 clean environment.
