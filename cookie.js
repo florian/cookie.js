@@ -2,7 +2,7 @@
 
 !function (document, undefined) {
 
-	var utils = {
+	var utils = {a
 
 		// Is the given value an array? Use ES5 Array.isArray if it's available.
 		isArray: Array.isArray || function (value) {
