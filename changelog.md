@@ -8,7 +8,6 @@ cookie.js is a micro library. That's why I've decided not to number the versions
   - Added `cookie.defaults` to customize the default options.
   - Added `cookie.expiresMultiplier` so users can customize it and e.g. pass the number of minutes after that the cookie expires to `cookie.set` instead of the number of hours.
   - Added a more efficient escape method.
-  - Enabled strict mode. The code still validates perfectly, but I guess double validation (JSHint and strict mode) by including one line of code is a good thing.
   - Replaced rake with grunt.
   - Replaced Google Closure Compiler with UglifyJS, because grunt ships with UglifyJS and it nearly does the same amount of compression (currently 60 bytes more than GCC when gzipped, which is fine.).
 
