@@ -2,8 +2,6 @@
 
 !function (document, undefined) {
 
-	'use strict';
-
 	var utils = {
 
 		// Is the given value an array? Use ES5 Array.isArray if it's available.
