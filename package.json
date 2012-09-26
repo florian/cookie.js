@@ -1,0 +1,20 @@
+{
+    "name": "cookie",
+    "version": "0.0.1-jam.1",
+    "description": "A tiny JavaScript library that simplifies cookies",
+    "github": "https://github.com/js-coder/cookie.js",
+    "licenses": [
+        {
+            "type" : "MIT",
+            "url" : "http://github.com/js-coder/cookie.js/raw/master/license"
+        }
+    ],
+    "jam": {
+        "include": [
+            "cookie.js",
+            "readme.md",
+            "license"
+        ],
+        "main": "cookie.js"
+    }
+}
