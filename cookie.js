@@ -152,7 +152,7 @@
 		if (navigator.cookieEnabled) return true;
 
 		var ret = cookie.set('_', '_').get('_') === '_';
-		cookie.remove('a');
+		cookie.remove('_');
 		return ret;
 
 	};
