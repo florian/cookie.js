@@ -11,7 +11,7 @@
 
 		// Is the given value a plain object / an object whose constructor is `Object`?
 		isPlainObject: function (value) {
-			return Object.prototype.toString.call(value) === '[object Object]';
+			return value && Object.prototype.toString.call(value) === '[object Object]';
 		},
 
 		// Convert an array-like object to an array – for example `arguments`.
