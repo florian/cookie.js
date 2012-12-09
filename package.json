@@ -1,6 +1,6 @@
 {
     "name": "cookie.js",
-    "version": "0.0.1-jam.1",
+    "version": "1.0.0",
     "description": "A tiny JavaScript library that simplifies cookies.",
     "github": "https://github.com/js-coder/cookie.js",
     "licenses": [
@@ -23,5 +23,8 @@
     },
     "bugs": {
         "url" : "http://github.com/js-coder/cookie.js/issues"
+    },
+    "devDependencies": {
+        "grunt": "*"
     }
 }
