@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<title>cookie.js—QUnit Tests</title>
-	<link rel="stylesheet" href="qunit.css">
+  <title>cookie.js test suite</title>
+  <link rel="stylesheet" href="vendor/mocha.css" />
+  <script src="vendor/jquery.js"></script>
+  <script src="vendor/mocha.js"></script>
+  <script src="vendor/chai.js"></script>
+  <script>
+    chai.should();
+    chai.expect();
+    mocha.setup({ui: 'bdd'});
+    $(function () {
+      mocha.run().globals(['cookie']);
+    });
+  </script>
+  <script src="../cookie.js"></script>
+  <script src="spec.js"></script>
 </head>
 <body>
-	<div id="qunit"></div>
-	<script src="qunit.js"></script>
-	<script src="../cookie.js"></script>
-	<script src="tests.js"></script>
+  <div id="mocha"></div>
 </body>
 </html>
