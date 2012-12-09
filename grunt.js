@@ -23,10 +23,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		qunit: {
-			all: ['tests/index.html']
-		},
-
 		min: {
 			dist: {
 				src: ['<banner>', 'cookie.js'],
@@ -41,7 +37,7 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.registerTask('default', 'lint qunit min');
-	grunt.registerTask('development', 'lint qunit');
+	grunt.registerTask('default', 'lint  min');
+	grunt.registerTask('development', 'lint');
 
 };
