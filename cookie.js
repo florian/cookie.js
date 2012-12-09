@@ -2,7 +2,11 @@
 
 !function (document, undefined) {
 
-	var utils = {
+	var cookie = function () {
+		return cookie.get.apply(cookie, arguments);
+	};
+
+	cookie.utils = utils = {
 
 		// Is the given value an array? Use ES5 Array.isArray if it's available.
 		isArray: Array.isArray || function (value) {
@@ -11,7 +15,7 @@
 
 		// Is the given value a plain object / an object whose constructor is `Object`?
 		isPlainObject: function (value) {
-			return value && Object.prototype.toString.call(value) === '[object Object]';
+			return !!value && Object.prototype.toString.call(value) === '[object Object]';
 		},
 
 		// Convert an array-like object to an array – for example `arguments`.
@@ -39,13 +43,9 @@
 
 		// Return fallback if the value is undefined, otherwise return value.
 		retrieve: function (value, fallback) {
-			return value === undefined ? fallback : value;
+			return value == undefined ? fallback : value;
 		}
 
-	};
-
-	var cookie = function () {
-		return cookie.get.apply(cookie, arguments);
 	};
 
 	cookie.defaults = {};
