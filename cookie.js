@@ -41,9 +41,9 @@
 			});
 		},
 
-		// Return fallback if the value is undefined, otherwise return value.
+		// Return fallback if the value is not defined, otherwise return value.
 		retrieve: function (value, fallback) {
-			return value == undefined ? fallback : value;
+			return value == null ? fallback : value;
 		}
 
 	};
