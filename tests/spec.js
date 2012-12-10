@@ -178,13 +178,14 @@ describe("cookie", function () {
 	});
 
 	describe("empty", function () {
+
 		it("should remove all cookies", function () {
 			cookie.empty();
 			cookie.all.should.not.include.keys('a', 'b');
 		});
 
 		it("should return the cookie object", function () {
-			cookie.remove('a').should.equal(cookie);
+			cookie.empty().should.equal(cookie);
 		});
 	});
 
