@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 		},
 
 		lint: {
-			all: ['grunt.js', 'cookie.js', 'tests/tests.js']
+			all: ['grunt.js', 'cookie.js']
 		},
 
 		jshint: {
