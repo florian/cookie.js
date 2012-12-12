@@ -44,12 +44,12 @@ describe("cookie", function () {
 			});
 
 			it("should return false for undefined values", function () {
-				cookie.utils.isPlainObject(undefined).should.be.false
-				cookie.utils.isPlainObject(null).should.be.false
+				cookie.utils.isPlainObject(undefined).should.be.false;
+				cookie.utils.isPlainObject(null).should.be.false;
 			});
 
 			it("should return false for other values", function () {
-				cookie.utils.isPlainObject(42).should.be.false
+				cookie.utils.isPlainObject(42).should.be.false;
 			});
 		});
 
@@ -82,7 +82,7 @@ describe("cookie", function () {
 
 			it("should not escape any other characters", function () {
 				cookie.utils.escape(":").should.not.equal(window.escape(':'));
-			})
+			});
 		});
 
 		describe("retrieve", function () {
@@ -130,7 +130,7 @@ describe("cookie", function () {
 
 		it("should return undefined if the cookie doesn't exist and no fallback is specified", function () {
 			chai.expect(cookie.get('__undef__')).to.be.undefined;
-		})
+		});
 
 		it("should return the fallback if the cookie is undefined", function () {
 			cookie.get('__undef__', 'fallback').should.equal('fallback');
