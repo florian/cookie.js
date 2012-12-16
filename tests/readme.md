@@ -1,4 +1,4 @@
-# cookie.js–QUnit Tests
+# cookie.js–Unit Tests
 **[✓] Currently all tests pass.**
 
 cookie.js uses the [mocha](http://visionmedia.github.com/mocha) testing framework and the [chai](http://chaijs.com) assertion framework. You can run the tests by visiting the [test page](http://js-coder.github.com/cookie.js/tests/) or by cloning this repo and running the tests
