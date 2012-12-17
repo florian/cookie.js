@@ -1,9 +1,25 @@
-# cookie.js–Unit Tests
-**[✓] Currently all tests pass.**
+# cookie.js–Test suite
 
-cookie.js uses the [mocha](http://visionmedia.github.com/mocha) testing framework and the [chai](http://chaijs.com) assertion library. You can run the tests by visiting the [test page](http://js-coder.github.com/cookie.js/tests/) or by cloning this repo and running the tests
-locally. Keep in mind that you'll need a web server to run the tests, because cookies need a server.
+cookie.js uses the [mocha](http://visionmedia.github.com/mocha) testing framework and the [chai](http://chaijs.com) assertion framework.
 
-*Currently there are no tests for the [`cookie.set`](https://github.com/js-coder/cookie.js#cookieset) options object.
+## Running the tests
 
-If you want to add some tests, make sure to push to the *master* and the *gh-pages* branch.
+There are several ways to run the tests:
+
+- Visit the [test page](http://js-coder.github.com/cookie.js/tests/).
+- Using a web server and by visiting the *tests/index.html* in your browser.
+
+  ```sh
+  $ git clone git://github.com/js-coder/cookie.js.git && cd cookie.js
+  $ python -m SimpleHTTPServer 4321# Or using something similiar to start a web server
+  $ open localhost:4321
+  ```
+
+- Using the grunt build system and PhantomJS.
+
+  ```sh
+  $ git clone git://github.com/js-coder/cookie.js.git && cd cookie.js
+  $ grunt test
+  ```
+
+*Currently there are no tests for the [`cookie.set`](https://github.com/js-coder/cookie.js#cookieset) options object, you're welcome to contribute!*
