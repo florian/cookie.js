@@ -11,7 +11,8 @@
 	chai.expect();
 
 	mocha.setup({
-		ui: 'bdd'
+		ui: 'bdd',
+		ignoreLeaks: true
 	});
 
 	$(function () {
