@@ -9,10 +9,16 @@
   <script>
     chai.should();
     chai.expect();
-    mocha.setup({ui: 'bdd'});
-    $(function () {
-      mocha.run().globals(['cookie']);
+
+    mocha.setup({
+      ui: 'bdd'
     });
+
+   $(function () {
+       if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+           mocha.run();
+       }
+   });
   </script>
   <script src="../cookie.js"></script>
   <script src="spec.js"></script>
