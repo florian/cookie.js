@@ -25,6 +25,7 @@
         "url" : "http://github.com/js-coder/cookie.js/issues"
     },
     "devDependencies": {
-        "grunt": "*"
+        "grunt": "~0.3",
+        "grunt-mocha": "~0.1"
     }
 }
