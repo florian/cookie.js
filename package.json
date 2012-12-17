@@ -12,8 +12,8 @@
     "jam": {
         "include": [
             "cookie.js",
-            "readme.md",
-            "license"
+            "README.md",
+            "LICENSE"
         ],
         "main": "cookie.js"
     },
