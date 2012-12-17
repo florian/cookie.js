@@ -24,8 +24,10 @@ module.exports = function(grunt) {
 		},
 
 		mocha: {
-			all: 'tests/index.html',
-			run: true
+			all: {
+			    src: 'tests/index.html',
+			    run: true
+			}
 		},
 
 		min: {
@@ -44,7 +46,7 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-mocha');
 
-	grunt.registerTask('default', 'lint  min');
-	grunt.registerTask('development', 'lint');
+	grunt.registerTask('default', 'lint mocha min');
+	grunt.registerTask('development', 'lint mocha');
 
 };
