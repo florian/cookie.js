@@ -19,7 +19,8 @@ There are several ways to run the tests:
 
   ```sh
   $ git clone git://github.com/js-coder/cookie.js.git && cd cookie.js
-  $ grunt test
+  $ npm install # Install grunt dependencies
+  $ grunt test # Run the tests
   ```
 
 *Currently there are no tests for the [`cookie.set`](https://github.com/js-coder/cookie.js#cookieset) options object, you're welcome to contribute!*
