@@ -48,6 +48,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', 'lint mocha min');
 	grunt.registerTask('development', 'lint mocha');
-	grunt.registerTask('test', 'mocha')
+	grunt.registerTask('test', 'mocha');
 
 };
