@@ -159,20 +159,9 @@ The methods `set`, `remove` and `empty` return the cookie object and therefore e
 cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
 ```
 
-## Contribute
+- - -
 
-If you find any bugs in this script or have ideas how to improve it please let me know by creating an [issue](https://github.com/js-coder/cookie.js/issues).
+## Wiki pages
 
-You are also very welcome to contribute to the code here on github. Use grunt if you want to easily minify cookie.js after making changes or want to lint it. All you need is [node.js](http://nodejs.org), [grunt](https://github.com/cowboy/grunt) and the [gruntfile](https://github.com/js-coder/cookie.js/blob/master/grunt.js). You'll also need [phantomjs](http://phantomjs.org/) to run the QUnit tests with grunt.
-
-```bash
-$ grunt # Lints the code, runs the QUnit tests and then minifies it. You should always do this before pushing your changes.
-
-$ grunt lint # Checks if JSHint detects any errors.
-$ grunt qunit # Runs QUnit tests.
-$ grunt min # Minifies cookie.js, prepends the copyright and then writes the result to cookie.min.js.
-
-$ grunt watch # Runs the lint and QUnit tasks everytime cookie.js is saved.
-```
-
-In case you don't want to use grunt, please make sure to minify using [UglifyJS](http://marijnhaverbeke.nl/uglifyjs/) and to unit test / lint your code.
+- [Contribute](https://github.com/js-coder/cookie.js/wiki/Contribute)
+- [Changelog](https://github.com/js-coder/cookie.js/wiki/Changelog)
