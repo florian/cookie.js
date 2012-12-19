@@ -1,5 +1,5 @@
 {
-    "name": "cookie.js",
+    "name": "cookie",
     "version": "1.0.0",
     "description": "A tiny JavaScript library that simplifies cookies.",
     "github": "https://github.com/js-coder/cookie.js",
