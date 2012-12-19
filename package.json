@@ -9,6 +9,9 @@
             "url" : "http://github.com/js-coder/cookie.js/raw/master/license"
         }
     ],
+    "scripts": {
+        "test": "grunt test"
+    }
     "jam": {
         "include": [
             "cookie.js",
