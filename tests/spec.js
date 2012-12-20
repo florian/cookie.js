@@ -110,6 +110,11 @@ describe("cookie", function () {
 			document.cookie.should.contain('a=1');
 		});
 
+		it("should not throw an error when setting something that can be casted to a string", function () {
+			cookie.set('n', 5);
+			document.cookie.should.contain('n=5');
+		});
+
 		it("should be able to set several cookies at once", function () {
 			document.cookie.should.contain('b=2').and.contain('c=3');
 		});
