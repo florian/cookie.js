@@ -36,7 +36,7 @@
 		// Unlike JavaScript's built-in escape functions, this method
 		// only escapes characters that are not allowed in cookies.
 		escape: function (value) {
-			return value.replace(/[,;"\\=\s%]/g, function (character) {
+			return String(value).replace(/[,;"\\=\s%]/g, function (character) {
 				return encodeURIComponent(character);
 			});
 		},
