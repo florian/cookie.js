@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			files: ['cookie.js'],
+			files: ['cookie.js', 'tests/*'],
 			tasks: 'development'
 		}
 
