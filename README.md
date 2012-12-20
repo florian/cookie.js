@@ -31,7 +31,7 @@ You can use the `cookie.set` method to set cookies. The value will automatically
 cookie.set('key', 'value');
 ```
 
-*Note: You can only save strings with cookies.*
+*Note: Values will be casted to string, so setting a number will work. However, the value will be a string when getting the cookie.*
 
 You can also set several values at once:
 
