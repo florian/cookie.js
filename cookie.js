@@ -25,20 +25,24 @@
 
 		// Get the keys of an object. Use ES5 Object.keys if it's available.
 		getKeys: Object.keys || function (obj) {
+
 			var keys = [],
 				 key = '';
 			for (key in obj) {
 				if (obj.hasOwnProperty(key)) keys.push(key);
 			}
 			return keys;
+
 		},
 
 		// Unlike JavaScript's built-in escape functions, this method
 		// only escapes characters that are not allowed in cookies.
 		escape: function (value) {
+
 			return String(value).replace(/[,;"\\=\s%]/g, function (character) {
 				return encodeURIComponent(character);
 			});
+
 		},
 
 		// Return fallback if the value is not defined, otherwise return value.
@@ -66,7 +70,7 @@
 			options = utils.isPlainObject(options) ? options : { expires: options };
 
 			var expires = options.expires !== undefined ? options.expires : (this.defaults.expires || ''), // Empty string for session cookies.
-			    expiresType = typeof(expires);
+			    expiresType = typeof expires;
 
 			if (expiresType === 'string' && expires !== '') expires = new Date(expires);
 			else if (expiresType === 'number') expires = new Date(+new Date + 1000 * this.expiresMultiplier * expires); // This is needed because IE does not support the `max-age` cookie attribute.
@@ -103,12 +107,11 @@
 		}
 
 		return this; // Return the `cookie` object to make chaining possible.
+
 	};
 
 	cookie.empty = function () {
-
 		return this.remove(utils.getKeys(this.all()));
-
 	};
 
 	cookie.get = function (keys, fallback) {
