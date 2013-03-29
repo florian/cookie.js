@@ -48,11 +48,32 @@
 		// Return fallback if the value is not defined, otherwise return value.
 		retrieve: function (value, fallback) {
 			return value == null ? fallback : value;
+		},
+
+		// Clone and/or combine one or more plain objects.
+		combine: function () {
+
+			var result = {};
+
+			for (var i = 0; i < arguments.length; i++) {
+				var item = arguments[i];
+
+				if (utils.isPlainObject(item)) {
+					for (var key in item) {
+						if (item.hasOwnProperty(key)) result[key] = item[key];
+					}
+				}
+			}
+
+			return result;
+
 		}
 
 	};
 
-	cookie.defaults = {};
+	cookie.defaults = {
+		expires: '' // Empty string for session cookies.
+	};
 
 	cookie.expiresMultiplier = 60 * 60 * 24;
 
@@ -67,23 +88,21 @@
 
 		} else {
 
-			options = utils.isPlainObject(options) ? options : { expires: options };
+			options = utils.combine(cookie.defaults, utils.isPlainObject(options) || options === undefined ? options : { expires: options });
 
-			var expires = options.expires !== undefined ? options.expires : (this.defaults.expires || ''), // Empty string for session cookies.
+			var expires = options.expires,
 			    expiresType = typeof expires;
 
 			if (expiresType === 'string' && expires !== '') expires = new Date(expires);
 			else if (expiresType === 'number') expires = new Date(+new Date + 1000 * this.expiresMultiplier * expires); // This is needed because IE does not support the `max-age` cookie attribute.
 
-			if (expires !== '' && 'toGMTString' in expires) expires = ';expires=' + expires.toGMTString();
+			if (expires !== '') expires = ';expires=' + expires.toGMTString();
 
-			var path = options.path || this.defaults.path; // TODO: Too much code for a simple feature.
-			path = path ? ';path=' + path : '';
+			var path = options.path ? ';path=' + path : '';
 
-			var domain = options.domain || this.defaults.domain;
-			domain = domain ? ';domain=' + domain : '';
+			var domain = options.domain ? ';domain=' + options.domain : '';
 
-			var secure = options.secure || this.defaults.secure ? ';secure' : '';
+			var secure = options.secure ? ';secure' : '';
 
 			document.cookie = utils.escape(key) + '=' + utils.escape(value) + expires + path + domain + secure;
 
