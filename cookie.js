@@ -6,7 +6,7 @@
 		return cookie.get.apply(cookie, arguments);
 	};
 
-	cookie.utils = utils = {
+	var utils = cookie.utils = {
 
 		// Is the given value an array? Use ES5 Array.isArray if it's available.
 		isArray: Array.isArray || function (value) {
