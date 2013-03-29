@@ -23,13 +23,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		mocha: {
-			all: {
-			    src: 'tests/index.html',
-			    run: true
-			}
-		},
-
 		min: {
 			dist: {
 				src: ['<banner>', 'cookie.js'],
