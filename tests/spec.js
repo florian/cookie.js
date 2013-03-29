@@ -24,7 +24,6 @@ describe("cookie", function () {
 		describe("isArray", function () {
 			it("should spot arrays", function () {
 				cookie.utils.isArray([]).should.be.true;
-				cookie.utils.isArray(new Array).should.be.true;
 			});
 
 			it("should return false for other values", function () {
@@ -35,7 +34,6 @@ describe("cookie", function () {
 		describe("isPlainObject", function () {
 			it("should spot plain objects", function () {
 				cookie.utils.isPlainObject({}).should.be.true;
-				cookie.utils.isPlainObject(new Object).should.be.true;
 			});
 
 			it("should return false for constructed objects", function () {
