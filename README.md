@@ -66,7 +66,7 @@ The following fields can be added to the mentioned object:
 | `domain` |  A `string` that specifies the domain that can access the cookie. | The current domain. |
 | `path` | A `string` that limits the access of the cookie to that path. | The current path. |
 | `secure` | A `boolean` indicating whether the cookie shall only be accessable over a secure connection or not. | `false` |
-| `raw` | Indicates whether the cookie value should not be decoded before returning. | `false` |
+| `raw` | A `boolean` value indicates if the cookie value should be returned decoded or raw. | `false` |
 
 You can customize the default settings by manipulating `cookie.defaults`.
 
