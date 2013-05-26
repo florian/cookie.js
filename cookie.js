@@ -33,19 +33,15 @@
 			return keys;
 		},
 
-		// Unlike JavaScript's built-in escape functions, this method
-		// only escapes characters that are not allowed in cookies.
-		escape: function (value) {
-			return String(value).replace(/[,;"\\=\s%]/g, function (character) {
-				return encodeURIComponent(character);
-			});
-		},
-
 		// Return fallback if the value is not defined, otherwise return value.
 		retrieve: function (value, fallback) {
 			return value == null ? fallback : value;
-		}
+		},
 
+		// Replace pluses with spaces and decode a string.
+		decode: function (string) {
+			return decodeURIComponent(string.replace(/\+/g, ' '));
+		}
 	};
 
 	cookie.defaults = {};
@@ -66,7 +62,7 @@
 			options = utils.isPlainObject(options) ? options : { expires: options };
 
 			var expires = options.expires !== undefined ? options.expires : (this.defaults.expires || ''), // Empty string for session cookies.
-			    expiresType = typeof(expires);
+				expiresType = typeof(expires);
 
 			if (expiresType === 'string' && expires !== '') expires = new Date(expires);
 			else if (expiresType === 'number') expires = new Date(+new Date + 1000 * this.expiresMultiplier * expires); // This is needed because IE does not support the `max-age` cookie attribute.
@@ -81,8 +77,10 @@
 
 			var secure = options.secure || this.defaults.secure ? ';secure' : '';
 
-			document.cookie = utils.escape(key) + '=' + utils.escape(value) + expires + path + domain + secure;
+			key = encodeURIComponent(key);
+			value = encodeURIComponent(value);
 
+			document.cookie = key + '=' + value + expires + path + domain + secure;
 		}
 
 		return this; // Return the `cookie` object to make chaining possible.
@@ -140,7 +138,12 @@
 
 		for (var i = 0, l = cookies.length; i < l; i++) {
 			var item = cookies[i].split('=');
-			result[decodeURIComponent(item[0])] = decodeURIComponent(item[1]);
+
+			if (cookie.defaults.raw) {
+				result[item[0]] = item[1];
+			} else {
+				result[utils.decode(item[0])] = utils.decode(item[1]);
+			}
 		}
 
 		return result;

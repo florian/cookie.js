@@ -4,7 +4,9 @@ describe("cookie", function () {
 		cookie.set({
 			a: '1',
 			b: '2',
-			c: '3'
+			c: '3',
+			d: '4 5',
+			e: '6+7'
 		});
 	});
 
@@ -75,13 +77,25 @@ describe("cookie", function () {
 			});
 		});
 
-		describe("escape", function () {
-			it("should escape , ; \" \\ = % and whitespace", function () {
-				cookie.utils.escape(',;"\\=\s%').should.equal("%2C%3B%22%5C%3Ds%25");
+		describe("raw", function () {
+			beforeEach(function () {
+				cookie.empty();
+				cookie.set('key', ',;"\\=\s%');
 			});
 
-			it("should not escape any other characters", function () {
-				cookie.utils.escape(":").should.not.equal(window.escape(':'));
+			afterEach(function () {
+				cookie.remove('key');
+				delete cookie.defaults.raw;
+			});
+
+			it("should decode the cookie", function () {
+				cookie.defaults.raw = false;
+				cookie.get('key').should.equal(',;"\\=\s%');
+			});
+
+			it("should not decode the cookie when raw is set", function () {
+				cookie.defaults.raw = true;
+				cookie.get('key').should.equal('%2C%3B%22%5C%3Ds%25');
 			});
 		});
 
@@ -131,6 +145,8 @@ describe("cookie", function () {
 
 		it("should retrieve the correct value", function () {
 			cookie.get('a').should.equal('1');
+			cookie.get('d').should.equal('4 5');
+			cookie.get('e').should.equal('6+7');
 		});
 
 		it("should return undefined if the cookie doesn't exist and no fallback is specified", function () {
@@ -159,6 +175,20 @@ describe("cookie", function () {
 			cookie(['a', 'b']).should.eql(cookie.get(['a', 'b']));
 			cookie(['a', '__undef__'], 'fallback').should.eql(cookie.get(['a', '__undef__'], 'fallback'));
 		});
+
+		describe("replace pluses", function () {
+			beforeEach(function () {
+				document.cookie = 'key=value1+value2';
+			});
+
+			afterEach(function () {
+				cookie.empty();
+			});
+
+			it("should replace not encoded pluses with spaces", function () {
+			   cookie('key').should.equal('value1 value2');
+			});
+		})
 	});
 
 	describe("remove", function () {
