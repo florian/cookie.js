@@ -1,0 +1,9 @@
+{
+	"name": "cookie",
+	"version": "1.0.0",
+	"main": "cookie.js",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/js-coder/cookie.js.git"
+	}
+}
