@@ -113,7 +113,6 @@
 
 	cookie.get = function (keys, fallback) {
 
-		fallback = fallback || undefined;
 		var cookies = this.all();
 
 		if (utils.isArray(keys)) {
