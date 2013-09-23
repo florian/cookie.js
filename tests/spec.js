@@ -204,4 +204,14 @@ describe("cookie", function () {
 			cookie.all().b.should.equal('2');
 		});
 	});
+
+	describe("noConflict", function () {
+		it("should return the cookie object and reset global cookie in browsers", function () {
+			var cookieObj = cookie;
+			cookie.noConflict().should.equal(cookieObj);
+			chai.expect(cookie).to.be.undefined;
+
+			cookie = cookieObj;
+		});
+	});
 });
