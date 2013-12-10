@@ -159,6 +159,12 @@ describe("cookie", function () {
 			cookie(['a', 'b']).should.eql(cookie.get(['a', 'b']));
 			cookie(['a', '__undef__'], 'fallback').should.eql(cookie.get(['a', '__undef__'], 'fallback'));
 		});
+
+		it("should return undefined if the value is not correct", function() {
+			var cookieContainingMalformedURI = ['d', '%AF'].join("=");
+			document.cookie = cookieContainingMalformedURI;
+			chai.expect(cookie.get('d')).to.be.undefined;
+		});
 	});
 
 	describe("remove", function () {

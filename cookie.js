@@ -140,7 +140,14 @@
 
 		for (var i = 0, l = cookies.length; i < l; i++) {
 			var item = cookies[i].split('=');
-			result[decodeURIComponent(item[0])] = decodeURIComponent(item[1]);
+
+			if (item.length < 2) {
+				continue;
+			}
+
+			try {
+				result[decodeURIComponent(item[0])] = decodeURIComponent(item[1]);
+			} catch(ignore){}
 		}
 
 		return result;
