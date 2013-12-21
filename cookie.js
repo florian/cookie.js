@@ -1,6 +1,6 @@
 // Copyright (c) 2012 Florian H., https://github.com/js-coder https://github.com/js-coder/cookie.js
 
-!(function (global, undefined) {
+!(function (document, undefined) {
 
 	var cookie = function () {
 		return cookie.get.apply(cookie, arguments);
@@ -175,14 +175,14 @@
 	} else if (typeof exports !== 'undefined') {
 		exports.cookie = cookie;
 	} else {
-		var _previousRoot = global.cookie;
+		var _previousRoot = window.cookie;
 
 		cookie.noConflict = function(){
-			global.cookie = _previousRoot;
+			window.cookie = _previousRoot;
 			return cookie;
 		};
 
-		global.cookie = cookie;
+		window.cookie = cookie;
 	}
 
-}(this));
+}(document));
