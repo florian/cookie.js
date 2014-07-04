@@ -140,7 +140,12 @@
 
 		for (var i = 0, l = cookies.length; i < l; i++) {
 			var item = cookies[i].split('=');
-			result[decodeURIComponent(item[0])] = decodeURIComponent(item[1]);
+			var key = decodeURIComponent(item.shift());
+			// in case the cookie value has a not encoded '=', for example, the cookie is 'a=a=b'
+			// learn this from jquery.cookie.js
+			// ref https://github.com/carhartl/jquery-cookie/blob/master/jquery.cookie.js
+			var value = decodeURIComponent(item.join('='));
+			result[key] = value;
 		}
 
 		return result;
