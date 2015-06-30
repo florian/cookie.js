@@ -42,7 +42,7 @@ cookie.set({
 });
 ```
 
-If you need more options, like setting the expiry date, you can add an object with options as the third parameter:
+If you need more options, like setting the expiry date, you can add an object with options as the last parameter:
 
 ```javascript
 cookie.set('key', 'value', {
@@ -50,11 +50,10 @@ cookie.set('key', 'value', {
 });
 
 cookie.set({
-	key1: 'value1',
-	key2: 'value2',
-	{
-		expires: 7
-	}
+   key1: 'value1',
+   key2: 'value2'
+}, {
+   expires: 7
 })
 ```
 
