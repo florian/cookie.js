@@ -81,7 +81,8 @@
 
 			var secure = options.secure || this.defaults.secure ? ';secure' : '';
 
-			document.cookie = utils.escape(key) + '=' + utils.escape(value) + expires + path + domain + secure;
+			document.cookie = utils.escape(key) + '=' + 
+				(options.encode === false ? value : utils.escape(value)) + expires + path + domain + secure;
 
 		}
 
