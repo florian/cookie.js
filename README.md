@@ -1,13 +1,13 @@
-#  cookie.js–simplifying cookies in JavaScript [![Build Status](https://travis-ci.org/js-coder/cookie.js.png?branch=master)](https://travis-ci.org/js-coder/cookie.js)
+#  cookie.js–simplifying cookies in JavaScript [![Build Status](https://travis-ci.org/florian/cookie.js.png?branch=master)](https://travis-ci.org/florian/cookie.js)
 
-cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/js-coder/cookie.js/blob/master/license). It doesn't have any dependencies and minified and gzipped it's only 0.9 KB small.
+cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/florian/cookie.js/blob/master/license). It doesn't have any dependencies and minified and gzipped it's only 0.9 KB small.
 
 ## Why would you want to use it?
 Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to provide an easy and nevertheless powerful way to use cookies.
 
 ## Usage
 
-Download [cookie.min.js](https://raw.github.com/js-coder/cookie.js/master/cookie.min.js) and include it in your HTML document:
+Download [cookie.min.js](https://raw.github.com/florian/cookie.js/master/cookie.min.js) and include it in your HTML document:
 
 ```html
 <script src="cookie.min.js"></script>
@@ -163,5 +163,5 @@ cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
 
 ## Wiki pages
 
-- [Contribute](https://github.com/js-coder/cookie.js/wiki/Contribute)
-- [Changelog](https://github.com/js-coder/cookie.js/wiki/Changelog)
+- [Contribute](https://github.com/florian/cookie.js/wiki/Contribute)
+- [Changelog](https://github.com/florian/cookie.js/wiki/Changelog)

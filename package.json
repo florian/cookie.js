@@ -2,11 +2,11 @@
     "name": "cookie",
     "version": "1.0.0",
     "description": "A tiny JavaScript library that simplifies cookies.",
-    "github": "https://github.com/js-coder/cookie.js",
+    "github": "https://github.com/florian/cookie.js",
     "licenses": [
         {
             "type" : "MIT",
-            "url" : "http://github.com/js-coder/cookie.js/raw/master/license"
+            "url" : "http://github.com/florian/cookie.js/raw/master/license"
         }
     ],
     "scripts": {
@@ -22,10 +22,10 @@
     },
     "repository": {
         "type" : "git",
-        "url" : "http://github.com/js-coder/cookie.js.git"
+        "url" : "http://github.com/florian/cookie.js.git"
     },
     "bugs": {
-        "url" : "http://github.com/js-coder/cookie.js/issues"
+        "url" : "http://github.com/florian/cookie.js/issues"
     },
     "devDependencies": {
         "grunt": "~0.3",
