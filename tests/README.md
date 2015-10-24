@@ -6,7 +6,6 @@ cookie.js uses the [mocha](http://visionmedia.github.com/mocha) testing framewor
 
 There are several ways to run the tests:
 
-- Visit the [test page](http://js-coder.github.com/cookie.js/tests/).
 - Using a web server and by visiting the *tests/index.html* in your browser.
 
   ```sh
