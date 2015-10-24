@@ -1,6 +1,6 @@
-# cookie.js–Test suite
+# cookie.js – Test suite
 
-cookie.js uses the [mocha](http://visionmedia.github.com/mocha) testing framework and the [chai](http://chaijs.com) assertion framework.
+cookie.js uses the [mocha](http://visionmedia.github.com/mocha) testing framework and the [chai](http://chaijs.com) assertion library
 
 ## Running the tests
 
@@ -10,7 +10,7 @@ There are several ways to run the tests:
 
   ```sh
   $ git clone git://github.com/florian/cookie.js.git && cd cookie.js
-  $ python -m SimpleHTTPServer 4321# Or using something similiar to start a web server
+  $ python -m SimpleHTTPServer 4321 # Or using something similiar to start a web server
   $ open localhost:4321
   ```
 
