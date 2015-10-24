@@ -159,6 +159,20 @@ describe("cookie", function () {
 			cookie(['a', 'b']).should.eql(cookie.get(['a', 'b']));
 			cookie(['a', '__undef__'], 'fallback').should.eql(cookie.get(['a', '__undef__'], 'fallback'));
 		});
+
+		it("should be able to get cookies with a = in the value", function () {
+			cookie.set({
+				a: 'a=b=c=d',
+				b: 'something',
+				c: 'a=c',
+				d: 'a=b'
+			});
+
+			cookie('a').should.equal('a=b=c=d');
+			cookie('b').should.equal('something');
+			cookie('c').should.equal('a=c');
+			cookie('d').should.equal('a=b');
+		});
 	});
 
 	describe("remove", function () {
