@@ -80,6 +80,7 @@
 			domain = domain ? ';domain=' + domain : '';
 
 			var secure = options.secure || this.defaults.secure ? ';secure' : '';
+			if (options.secure === false) secure = '';
 
 			document.cookie = utils.escape(key) + '=' + utils.escape(value) + expires + path + domain + secure;
 
