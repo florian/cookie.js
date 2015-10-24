@@ -1,29 +1,29 @@
 {
-    "name": "cookie",
-    "version": "1.0.0",
-    "description": "A tiny JavaScript library that simplifies cookies.",
-    "github": "https://github.com/florian/cookie.js",
-    "license": "MIT",
-    "scripts": {
-        "test": "grunt test"
-    },
-    "jam": {
-        "include": [
-            "cookie.js",
-            "README.md",
-            "LICENSE"
-        ],
-        "main": "cookie.js"
-    },
-    "repository": {
-        "type" : "git",
-        "url" : "http://github.com/florian/cookie.js.git"
-    },
-    "bugs": {
-        "url" : "http://github.com/florian/cookie.js/issues"
-    },
-    "devDependencies": {
-        "grunt": "~0.3",
-        "grunt-mocha": "~0.1"
-    }
+  "name": "cookie",
+  "version": "1.0.0",
+  "description": "A tiny JavaScript library that simplifies cookies.",
+  "github": "https://github.com/florian/cookie.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "jam": {
+    "include": [
+      "cookie.js",
+      "README.md",
+      "LICENSE"
+    ],
+    "main": "cookie.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/florian/cookie.js.git"
+  },
+  "bugs": {
+    "url": "http://github.com/florian/cookie.js/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-mocha": "^0.4.13"
+  }
 }
