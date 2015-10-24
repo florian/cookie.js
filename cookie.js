@@ -60,7 +60,7 @@
 		if (utils.isPlainObject(key)) {
 			// `key` contains an object with keys and values for cookies, `value` contains the options object.
 
-			for (var k in key) { // TODO: `k` really sucks as a variable name, but I didn't come up with a better one yet.
+			for (var k in key) {
 				if (key.hasOwnProperty(k)) this.set(k, key[k], value);
 			}
 		} else {
@@ -75,7 +75,7 @@
 
 			if (expires !== '' && 'toGMTString' in expires) expires = ';expires=' + expires.toGMTString();
 
-			var path = options.path || this.defaults.path; // TODO: Too much code for a simple feature.
+			var path = options.path || this.defaults.path;
 			path = path ? ';path=' + path : '';
 
 			var domain = options.domain || this.defaults.domain;
