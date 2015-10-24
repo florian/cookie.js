@@ -169,7 +169,7 @@ you need a custom decoding function you can overwrite `cookie.utils.decode`.
 ```javascript
 // For example
 cookie.utils.decode = function (value) {
-   return decodeURIComponent(value).replace('+', '');
+   return decodeURIComponent(value).replace('+', ' ');
 };
 ```
 
