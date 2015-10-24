@@ -163,7 +163,7 @@ cookie.setDefault({
    b: '2'
 });
 
-cookie.get('a', 'b'); // {a: "2", b: "2"}
+cookie.get(['a', 'b']); // {a: "1", b: "2"}
 ```
 
 ## Chaining
