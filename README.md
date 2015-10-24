@@ -1,30 +1,35 @@
-#  cookie.js–simplifying cookies in JavaScript [![Build Status](https://travis-ci.org/florian/cookie.js.png?branch=master)](https://travis-ci.org/florian/cookie.js)
+#  cookie.js – simplifying cookies in JavaScript [![Build Status](https://travis-ci.org/florian/cookie.js.png?branch=master)](https://travis-ci.org/florian/cookie.js)
 
-cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining. cookie.js is released under the [MIT/X11 license](https://github.com/florian/cookie.js/blob/master/license). It doesn't have any dependencies and minified and gzipped it's only 0.9 KB small.
+cookie.js is a tiny JavaScript library that simplifies cookies. It is capable of setting, getting and removing cookies, accepts a variety of parameters, and supports chaining.  It doesn't have any dependencies and minified+gzipped it's only 0.9 KB small.
 
 ## Why would you want to use it?
 Working with cookies in JavaScript sucks. `document.cookie` is definitely one of the ugly parts of JavaScript. This library aims to provide an easy and nevertheless powerful way to use cookies.
 
 ## Usage
 
-Download [cookie.min.js](https://raw.github.com/florian/cookie.js/master/cookie.min.js) and include it in your HTML document:
+Download [cookie.min.js](https://raw.github.com/florian/cookie.js/master/cookie.min.js) and include it in your HTML document, this will add a global object called `cookie`:
 
 ```html
 <script src="cookie.min.js"></script>
 ```
 
-If you include cookie.js as above, this script will add an object called `cookie` to your global scope.
+Alternatively you can use a JavaScript package manager to add it to your project:
+```sh
+$ bower install cookie --save
+$ jam install cookie
+$ npm install cookie_js --save
+```
 
 ---
 
-cookie.js also supports AMD and CommonJS. So if you want to include cookie.js dynamically, you can just require it with any AMD / CommonJS loader, for example [RequireJS](http://requirejs.org/) for AMD.
+cookie.js supports AMD and CommonJS. So if you want to include cookie.js dynamically, you can just require it with any AMD / CommonJS loader, for example [RequireJS](http://requirejs.org/) for AMD.
 Follow the instructions of your loader to include cookie.js.
 
 ---
 
 After that you can call any of methods that are explained in the following.
 
-## cookie.set()
+## cookie.set
 You can use the `cookie.set` method to set cookies. The value will automatically be escaped for you.
 
 ```javascript
@@ -81,7 +86,7 @@ cookie.expiresMultiplier = 60 * 60; // Minutes.
 cookie.expiresMultiplier = 60 * 60 * 24; // Hours.
 ```
 
-## cookie.get()
+## cookie.get
 This method allows you to retrieve your cookies, you can use it by simply passing the key of the cookie:
 
 ```javascript
@@ -116,7 +121,7 @@ cookie.get('key');
 cookie('key');
 ```
 
-## cookie.all()
+## cookie.all
 
 ```javascript
 var cookies = cookie.all();
@@ -124,7 +129,7 @@ var cookies = cookie.all();
 
 To get all of the currently saved cookies simply call `cookie.all`. In this case the variable `cookies` will return an object with all the current cookies.
 
-## cookie.remove()
+## cookie.remove
 
 This method allows you to remove cookies. It accepts an infinite number of keys or an array of keys.
 
@@ -134,11 +139,11 @@ cookie.remove('key1', 'key2');
 cookie.remove(['key1', 'key2']);
 ```
 
-## cookie.empty()
+## cookie.empty
 
 Sometimes you may want to remove all cookies. Simply call `cookie.empty()` and every cookie will be removed.
 
-## cookie.enabled()
+## cookie.enabled
 
 This method allows you to test if the cookies are enabled. It returns `true` if you can work with cookies and `false` if you cannot. You might want to use a fallback if they are disabled:
 
@@ -150,7 +155,7 @@ if (cookie.enabled()) {
 }
 ```
 
-## cookie.setDefault()
+## cookie.setDefault
 
 This method works just like `cookie.set` and accepts the same arguments, but it
 only sets those cookies that don't have a value yet allowing you to specify
