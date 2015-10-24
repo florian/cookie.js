@@ -1,0 +1,21 @@
+{
+  "name": "cookie",
+  "description": "A tiny JavaScript library that simplifies cookies.",
+  "main": "cookie.js",
+  "authors": [
+    "Florian Hartmann <jscoderr@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cookie"
+  ],
+  "homepage": "https://github.com/florian/cookie.js",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
