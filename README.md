@@ -150,6 +150,22 @@ if (cookie.enabled()) {
 }
 ```
 
+## cookie.setDefault()
+
+This method works just like `cookie.set` and accepts the same arguments, but it
+only sets those cookies that don't have a value yet allowing you to specify
+default values.
+
+```javascript
+cookie.set('a', '1');
+cookie.setDefault({
+   a: '2',
+   b: '2'
+});
+
+cookie.get('a', 'b'); // {a: "2", b: "2"}
+```
+
 ## Chaining
 
 The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining.

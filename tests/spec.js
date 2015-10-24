@@ -124,6 +124,36 @@ describe("cookie", function () {
 		});
 	});
 
+	describe("setDefault", function () {
+		it("should not set cookies that already exist", function () {
+			cookie.set('existingKey', 'x');
+			cookie.setDefault('existingKey', 'y');
+			document.cookie.should.contain('existingKey=x');
+		});
+
+		it("should set cookies that do not exist yet", function () {
+			cookie.setDefault('newKey', 'y');
+			document.cookie.should.contain('newKey=y');
+		});
+
+		it("should work with object arguments", function () {
+			cookie.set('existingKey', 'x');
+			cookie.setDefault({
+				existingKey: 'y',
+				reallyNewKey: 'y',
+				reallyNewKey2: 'y'
+			});
+
+			document.cookie.should.not.contain('existingKey=y');
+			document.cookie.should.contain('reallyNewKey=y');
+			document.cookie.should.contain('reallyNewKey2=y');
+		});
+
+		it("should return the cookie object", function () {
+			cookie.setDefault('defaultKey', 'y').should.equal(cookie);
+		});
+	});
+
 	describe("get", function () {
 		it("should return a string when getting a single cookie", function () {
 			cookie.get('a').should.be.a('string');
