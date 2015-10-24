@@ -35,10 +35,14 @@
 
 		// Unlike JavaScript's built-in escape functions, this method
 		// only escapes characters that are not allowed in cookies.
-		escape: function (value) {
+		encode: function (value) {
 			return String(value).replace(/[,;"\\=\s%]/g, function (character) {
 				return encodeURIComponent(character);
 			});
+		},
+
+		decode: function (value) {
+			return decodeURIComponent(value);
 		},
 
 		// Return fallback if the value is not defined, otherwise return value.
@@ -82,7 +86,7 @@
 			var secure = options.secure || this.defaults.secure ? ';secure' : '';
 			if (options.secure === false) secure = '';
 
-			document.cookie = utils.escape(key) + '=' + utils.escape(value) + expires + path + domain + secure;
+			document.cookie = utils.encode(key) + '=' + utils.encode(value) + expires + path + domain + secure;
 
 		}
 
@@ -140,8 +144,8 @@
 
 		for (var i = 0, l = cookies.length; i < l; i++) {
 			var item = cookies[i].split('=');
-			var key = decodeURIComponent(item.shift());
-			var value = decodeURIComponent(item.join('='));
+			var key = utils.decode(item.shift());
+			var value = utils.decode(item.join('='));
 			result[key] = value;
 		}
 

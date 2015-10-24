@@ -75,13 +75,13 @@ describe("cookie", function () {
 			});
 		});
 
-		describe("escape", function () {
-			it("should escape , ; \" \\ = % and whitespace", function () {
-				cookie.utils.escape(',;"\\=\s%').should.equal("%2C%3B%22%5C%3Ds%25");
+		describe("encode", function () {
+			it("should encode , ; \" \\ = % and whitespace", function () {
+				cookie.utils.encode(',;"\\=\s%').should.equal("%2C%3B%22%5C%3Ds%25");
 			});
 
-			it("should not escape any other characters", function () {
-				cookie.utils.escape(":").should.not.equal(window.escape(':'));
+			it("should not encode any other characters", function () {
+				cookie.utils.encode(":").should.equal(':');
 			});
 		});
 

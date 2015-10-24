@@ -158,6 +158,21 @@ The methods `set`, `remove` and `empty` return the cookie object and therefore e
 cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
 ```
 
+## A word on encoding
+
+cookie.js sensibly encodes / decodes values and should work just fine with most
+server side frameworks. However sometimes there are weird server side encodings,
+for example PHP escapes spaces with `+` for historic reasons.
+This library can't handle all of those cases at the same time so if you notice
+you need a custom decoding function you can overwrite `cookie.utils.decode`.
+
+```javascript
+// For example
+cookie.utils.decode = function (value) {
+   return decodeURIComponent(string.replace(/\+/g, ' '));
+};
+```
+
 - - -
 
 ## Wiki pages
