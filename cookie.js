@@ -168,4 +168,5 @@
 		exports.cookie = cookie;
 	} else window.cookie = cookie;
 
-}(document);
+// If used e.g. with browserify and commonJS, document is not declared
+}(typeof document === 'undefined' ? null : document);
