@@ -3,12 +3,7 @@
     "version": "1.0.0",
     "description": "A tiny JavaScript library that simplifies cookies.",
     "github": "https://github.com/florian/cookie.js",
-    "licenses": [
-        {
-            "type" : "MIT",
-            "url" : "http://github.com/florian/cookie.js/raw/master/license"
-        }
-    ],
+    "license": "MIT",
     "scripts": {
         "test": "grunt test"
     },
