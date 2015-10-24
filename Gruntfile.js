@@ -6,11 +6,8 @@ module.exports = function(grunt) {
 			banner: grunt.file.read('cookie.js').split('\n')[0]
 		},
 
-		lint: {
-			all: ['grunt.js', 'cookie.js']
-		},
-
 		jshint: {
+			all: ['Gruntfile.js', 'cookie.js', 'tests/spec.js'],
 			options: {
 				browser: true,
 				evil: false,
@@ -30,10 +27,15 @@ module.exports = function(grunt) {
 			}
 		},
 
-		min: {
-			dist: {
-				src: ['<banner>', 'cookie.js'],
-				dest: 'cookie.min.js'
+		uglify: {
+			options: {
+				banner: grunt.file.read('cookie.js').split('\n')[0] + "\n"
+			},
+
+			my_target: {
+				files: {
+					'cookie.min.js': ['cookie.js']
+				}
 			}
 		},
 
@@ -45,10 +47,14 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-mocha');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('default', 'lint mocha min');
-	grunt.registerTask('release', 'default');
-	grunt.registerTask('development', 'lint mocha');
 	grunt.registerTask('test', 'mocha');
+	grunt.registerTask('min', 'uglify');
+	grunt.registerTask('default', ['jshint', 'mocha', 'uglify']);
+	grunt.registerTask('release', 'default');
+	grunt.registerTask('development', 'jshint mocha');
 
 };
