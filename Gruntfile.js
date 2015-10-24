@@ -55,6 +55,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('min', 'uglify');
 	grunt.registerTask('default', ['jshint', 'mocha', 'uglify']);
 	grunt.registerTask('release', 'default');
-	grunt.registerTask('development', 'jshint mocha');
+	grunt.registerTask('development', ['jshint', 'mocha']);
 
 };
