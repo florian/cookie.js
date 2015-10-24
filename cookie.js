@@ -96,9 +96,7 @@
 
 	cookie.setDefault = function (key, value, options) {
 		if (utils.isPlainObject(key)) {
-			console.log(key);
 			for (var k in key) {
-				console.log(k, key[k]);
 				if (this.get(k) === undefined) this.set(k, key[k], value);
 			}
 			return cookie;
