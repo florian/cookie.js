@@ -161,12 +161,10 @@ describe("cookie", function () {
 		});
 
 		it("should be able to get cookies with a = in the value", function () {
-			cookie.set({
-				a: 'a=b=c=d',
-				b: 'something',
-				c: 'a=c',
-				d: 'a=b'
-			});
+			document.cookie = 'a=a=b=c=d';
+			document.cookie = 'b=something';
+			document.cookie = 'c=a=c';
+			document.cookie = 'd=a=b';
 
 			cookie('a').should.equal('a=b=c=d');
 			cookie('b').should.equal('something');
