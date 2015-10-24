@@ -162,10 +162,5 @@ cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
 
 ## Wiki pages
 
-<<<<<<< HEAD
 - [Contribute](https://github.com/florian/cookie.js/wiki/Contribute)
 - [Changelog](https://github.com/florian/cookie.js/wiki/Changelog)
-=======
-- [Contribute](https://github.com/js-coder/cookie.js/wiki/Contribute)
-- [Changelog](https://github.com/js-coder/cookie.js/wiki/Changelog)
->>>>>>> e7c45900b4c998dcd9cc4784856b09a2c24fb125
