@@ -57,19 +57,17 @@
 	cookie.expiresMultiplier = 60 * 60 * 24;
 
 	cookie.set = function (key, value, options) {
-
-		if (utils.isPlainObject(key)) { // Then `key` contains an object with keys and values for cookies, `value` contains the options object.
-
+		if (utils.isPlainObject(key)) {
+			// `key` contains an object with keys and values for cookies, `value` contains the options object.
 
 			for (var k in key) { // TODO: `k` really sucks as a variable name, but I didn't come up with a better one yet.
 				if (key.hasOwnProperty(k)) this.set(k, key[k], value);
 			}
-
 		} else {
-
 			options = utils.isPlainObject(options) ? options : { expires: options };
 
-			var expires = options.expires !== undefined ? options.expires : (this.defaults.expires || ''), // Empty string for session cookies.
+			// Empty string for session cookies.
+			var expires = options.expires !== undefined ? options.expires : (this.defaults.expires || ''),
 			    expiresType = typeof(expires);
 
 			if (expiresType === 'string' && expires !== '') expires = new Date(expires);
@@ -87,11 +85,9 @@
 			if (options.secure === false) secure = '';
 
 			document.cookie = utils.encode(key) + '=' + utils.encode(value) + expires + path + domain + secure;
-
 		}
 
 		return this; // Return the `cookie` object to make chaining possible.
-
 	};
 
 	cookie.setDefault = function (key, value, options) {
@@ -106,7 +102,6 @@
 	},
 
 	cookie.remove = function (keys) {
-
 		keys = utils.isArray(keys) ? keys : utils.toArray(arguments);
 
 		for (var i = 0, l = keys.length; i < l; i++) {
@@ -117,17 +112,13 @@
 	};
 
 	cookie.empty = function () {
-
 		return this.remove(utils.getKeys(this.all()));
-
 	};
 
 	cookie.get = function (keys, fallback) {
-
 		var cookies = this.all();
 
 		if (utils.isArray(keys)) {
-
 			var result = {};
 
 			for (var i = 0, l = keys.length; i < l; i++) {
@@ -138,15 +129,13 @@
 			return result;
 
 		} else return utils.retrieve(cookies[keys], fallback);
-
 	};
 
 	cookie.all = function () {
-
 		if (document.cookie === '') return {};
 
 		var cookies = document.cookie.split('; '),
-			  result = {};
+		    result = {};
 
 		for (var i = 0, l = cookies.length; i < l; i++) {
 			var item = cookies[i].split('=');
@@ -156,17 +145,14 @@
 		}
 
 		return result;
-
 	};
 
 	cookie.enabled = function () {
-
 		if (navigator.cookieEnabled) return true;
 
 		var ret = cookie.set('_', '_').get('_') === '_';
 		cookie.remove('_');
 		return ret;
-
 	};
 
 	// If an AMD loader is present use AMD.
@@ -181,5 +167,5 @@
 		exports.cookie = cookie;
 	} else window.cookie = cookie;
 
-// If used e.g. with browserify and CommonJS, document is not declared
+// If used e.g. with Browserify and CommonJS, document is not declared.
 }(typeof document === 'undefined' ? null : document);
