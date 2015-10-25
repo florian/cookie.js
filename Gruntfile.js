@@ -2,10 +2,6 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 
-		meta: {
-			banner: grunt.file.read('cookie.js').split('\n')[0]
-		},
-
 		jshint: {
 			all: ['Gruntfile.js', 'cookie.js', 'tests/spec.js'],
 			options: {
