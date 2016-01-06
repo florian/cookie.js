@@ -4,6 +4,7 @@
   "description": "A tiny JavaScript library that simplifies cookies.",
   "github": "https://github.com/florian/cookie.js",
   "license": "MIT",
+  "main": "cookie.js",
   "scripts": {
     "test": "grunt test"
   },
