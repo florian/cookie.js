@@ -199,7 +199,7 @@ well.
 
 ## Chaining
 
-The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining.
+The methods `set`, `remove`, `empty`, `setDefault`, `removeSpecific` return the cookie object and therefore enable chaining.
 
 ```javascript
 cookie.empty().set('key1', 'value1').set('key2', 'value2').remove('key1');
