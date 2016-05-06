@@ -111,6 +111,19 @@
 		return this; // Return the `cookie` object to make chaining possible.
 	};
 
+	cookie.removeSpecific = function (keys, options) {
+		if (!options) return this.remove(keys);
+
+		keys = utils.isArray(keys) ? keys : [keys];
+		options.expire = -1;
+
+		for (var i = 0, l = keys.length; i < l; i++) {
+			this.set(keys[i], '', options);
+		}
+
+		return this; // Return the `cookie` object to make chaining possible.
+	};
+
 	cookie.empty = function () {
 		return this.remove(utils.getKeys(this.all()));
 	};

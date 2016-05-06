@@ -171,6 +171,32 @@ cookie.setDefault({
 cookie.get(['a', 'b']); // {a: "1", b: "2"}
 ```
 
+## cookie.removeSpecific
+
+If you want to remove cookies that were set with custom options (e.g. specifing
+`domain` or path) then those are also needed to remove the cookie. This library
+can't automatically specify those for you because you might've set the cookie on
+the server and the JS cookie API doesn't offer a way to retrieve this
+information.
+
+```javascript
+cookie.set('a', 'b', { path: '/somepath' });
+
+// This won't work
+cookie.remove('a');
+
+// You have to do this
+cookie.removeSpecific('a', { path: '/somepath' });
+
+// You can also give an array of cookie keys
+cookie.removeSpeicifc(['a', 'b'], { path: '/somepath' });
+```
+
+This can be pretty annoying. So in case you would need to do this a lot it's
+suggested to just change `cookie.defaults` as explained in the `cookie.set`
+documentation. The default options are used by `remove` and `removeSpecific` as
+well.
+
 ## Chaining
 
 The methods `set`, `remove` and `empty` return the cookie object and therefore enable chaining.
