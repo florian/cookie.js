@@ -189,7 +189,7 @@ cookie.remove('a');
 cookie.removeSpecific('a', { path: '/somepath' });
 
 // You can also give an array of cookie keys
-cookie.removeSpeicifc(['a', 'b'], { path: '/somepath' });
+cookie.removeSpecific(['a', 'b'], { path: '/somepath' });
 ```
 
 This can be pretty annoying. So in case you would need to do this a lot it's
