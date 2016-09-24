@@ -174,7 +174,7 @@
 
 	if (typeof define === 'function' && define.amd) {
 		define(function () {
-			return cookie;
+			return {cookie: cookie};
 		});
 	} else if (typeof exports !== 'undefined') {
 		exports.cookie = cookie;
