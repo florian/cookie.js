@@ -115,7 +115,7 @@
 		if (!options) return this.remove(keys);
 
 		keys = utils.isArray(keys) ? keys : [keys];
-		options.expire = -1;
+		options.expires = -1;
 
 		for (var i = 0, l = keys.length; i < l; i++) {
 			this.set(keys[i], '', options);
