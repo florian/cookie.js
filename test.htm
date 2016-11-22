@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QUnit Test Suite: cookie.js</title>
+	<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css" type="text/css" media="screen">  
+	<script src="http://code.jquery.com/qunit/qunit-git.js"></script>  
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="cookie.js"></script>
+	<script>
+		module("get/set/remove single String value cookie",{
+		  setup: function() {
+		  	var val = 'value';
+		  	// Set sample cookie
+		  	cookie.set('key', val);
+		    this.testCookie = val;
+		  },
+		  teardown: function() {
+		    cookie.remove('key');
+		    // Ensure removal
+		    equal(cookie.get('key'), undefined);
+		  }
+		});
+		test('set() get()', function(){
+			expect(4);
+			equal(cookie.get('key'), this.testCookie);
+			equal(cookie('key'), this.testCookie, "Calling using cookie('key')");
+			notEqual(cookie.get('key'), 'monster', "Couldn't find cookie 'monster'.");
+		});
+
+
+		module("get/set/remove object of key/value cookies",{
+		  setup: function() {
+		  	var cookieObj = {
+		  		key1: 'value1',
+		  		key2: 'value2'
+		  	};
+		  	cookie.set(cookieObj);
+		  	this.testCookieObj = cookieObj;
+		    this.testCookie = cookie.get('key1', 'key2');
+		  },
+		  teardown: function() {
+		    cookie.remove('key1', 'key2');
+		    equal(cookie.get('key1'), undefined);
+		    equal(cookie.get('key2'), undefined);
+		  }
+		});
+		test('set() get()', function(){
+			expect(7);
+			equal(cookie.get('key1'), this.testCookieObj.key1);
+			equal(cookie.get('key2'), this.testCookieObj.key2);
+
+			equal(cookie('key1'), this.testCookieObj.key1, "Calling using cookie('key')");
+			equal(cookie('key2'), this.testCookieObj.key2, "Calling using cookie('key')");
+
+			notEqual(cookie('key'), 'monster', "Couldn't find cookie 'monster'.");
+		});
+	</script>
+</head>
+<body>
+	<h1 id="qunit-header">QUnit Test Suite</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+</body>
+</html>
