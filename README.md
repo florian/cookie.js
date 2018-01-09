@@ -81,9 +81,10 @@ cookie.defaults.secure = true;
 Most people will prefer specifying the expiry date in days, but if you want to specify the expiry date in minutes, then you can configure `cookie.expiresMultiplier`:
 
 ```javascript
-cookie.expiresMultiplier = 60; // Seconds.
-cookie.expiresMultiplier = 60 * 60; // Minutes.
-cookie.expiresMultiplier = 60 * 60 * 24; // Hours.
+cookie.expiresMultiplier = 1; // Seconds
+cookie.expiresMultiplier = 60; // Minutes.
+cookie.expiresMultiplier = 60 * 60; // Hours.
+cookie.expiresMultiplier = 60 * 60 * 24; // Days.
 ```
 
 ## cookie.get
