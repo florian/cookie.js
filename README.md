@@ -84,7 +84,7 @@ Most people will prefer specifying the expiry date in days, but if you want to s
 cookie.expiresMultiplier = 1; // Seconds
 cookie.expiresMultiplier = 60; // Minutes.
 cookie.expiresMultiplier = 60 * 60; // Hours.
-cookie.expiresMultiplier = 60 * 60 * 24; // Days.
+cookie.expiresMultiplier = 60 * 60 * 24; // Days(default).
 ```
 
 ## cookie.get
