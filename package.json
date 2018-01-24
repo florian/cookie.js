@@ -8,14 +8,6 @@
   "scripts": {
     "test": "grunt test"
   },
-  "jam": {
-    "include": [
-      "cookie.js",
-      "README.md",
-      "LICENSE"
-    ],
-    "main": "cookie.js"
-  },
   "repository": {
     "type": "git",
     "url": "http://github.com/florian/cookie.js.git"
