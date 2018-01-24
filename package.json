@@ -9,7 +9,8 @@
   "browser": "dist/cookie.umd.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "grunt test"
+    "test": "grunt test",
+    "pretest": "npm run build"
   },
   "repository": {
     "type": "git",
