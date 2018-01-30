@@ -9,8 +9,11 @@
   "browser": "dist/cookie.umd.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "grunt test",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "test": "npm run test:unit && npm run test:cjs && npm run test:esm",
+    "test:unit": "grunt test",
+    "test:cjs": "mocha tests/builds/cjs.js",
+    "test:esm": "mocha --require babel-core/register tests/builds/esm.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,8 @@
     "url": "http://github.com/florian/cookie.js/issues"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.2",
     "grunt": "^0.4.5",
     "grunt-cli": "^1.2.0",
