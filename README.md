@@ -69,7 +69,7 @@ The following fields can be added to the mentioned object:
 | `expires` |  Either a `number` containing the days until the expiry, a date in the `GMTString` format or a `date object`. | Expires when the browser is closed. |
 | `domain` |  A `string` that specifies the domain that can access the cookie. | The current domain. |
 | `path` | A `string` that limits the access of the cookie to that path. | The current path. |
-| `secure` | A `boolean` indicating whether the cookie shall only be accessable over a secure connection or not. | `false` |
+| `secure` | A `boolean` indicating whether the cookie shall only be accessible over a secure connection or not. | `false` |
 
 You can customize the default settings by manipulating `cookie.defaults`.
 
