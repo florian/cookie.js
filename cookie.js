@@ -73,7 +73,7 @@
 			if (expiresType === 'string' && expires !== '') expires = new Date(expires);
 			else if (expiresType === 'number') expires = new Date(+new Date + 1000 * this.expiresMultiplier * expires); // This is needed because IE does not support the `max-age` cookie attribute.
 
-			if (expires !== '' && 'toGMTString' in expires) expires = ';expires=' + expires.toGMTString();
+			if (expires !== '' && 'toUTCString' in expires) expires = ';expires=' + expires.toUTCString();
 
 			var path = options.path || this.defaults.path;
 			path = path ? ';path=' + path : '';
