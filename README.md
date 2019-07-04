@@ -221,6 +221,8 @@ cookie.utils.decode = function (value) {
 };
 ```
 
+For a decoding function for ColdFusion, see issue [#49](https://github.com/florian/cookie.js/issues/49).
+
 - - -
 
 ## Wiki pages
