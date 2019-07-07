@@ -16,7 +16,6 @@ Download [cookie.min.js](https://raw.github.com/florian/cookie.js/master/cookie.
 Alternatively you can use a JavaScript package manager to add it to your project:
 ```sh
 $ bower install cookie --save
-$ jam install cookie
 $ npm install cookie_js --save
 ```
 
