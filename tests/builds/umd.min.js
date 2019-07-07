@@ -18,5 +18,6 @@ describe('UMD Build', () => {
     assert(typeof window.cookie.get, 'function');
   });
 
+  // TODO: window.cookie cannot be passed since should is not injected
   shared.test({ cookie });
 })
