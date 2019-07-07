@@ -11,5 +11,3 @@ cookie.js uses the [mocha](http://visionmedia.github.com/mocha) testing framewor
   $ npm install # Install grunt dependencies
   $ npm test
   ```
-
-*Currently there are no tests for the [`cookie.set`](https://github.com/florian/cookie.js#cookieset) options object, you're welcome to contribute!*
