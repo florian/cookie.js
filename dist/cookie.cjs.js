@@ -99,7 +99,9 @@ cookie.setDefault = function (key, value, options) {
   } else {
     if (this.get(key) === undefined) return this.set.apply(this, arguments);
   }
-}, cookie.remove = function (keys) {
+},
+
+cookie.remove = function (keys) {
   keys = utils.isArray(keys) ? keys : utils.toArray(arguments);
 
   for (var i = 0, l = keys.length; i < l; i++) {
