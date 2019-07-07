@@ -10,10 +10,10 @@
   "scripts": {
     "build": "rollup -c",
     "pretest": "npm run build",
-    "test": "npm run test:unit && npm run test:cjs && npm run test:esm",
-    "test:unit": "grunt test",
-    "test:cjs": "mocha tests/builds/cjs.js",
-    "test:esm": "mocha --require babel-core/register tests/builds/esm.js"
+    "test": "npm run test:umd && npm run test:cjs && npm run test:esm",
+    "test:umd": "mocha --reporter dot -r jsdom-global/register tests/builds/umd.js",
+    "test:cjs": "mocha --reporter dot -r jsdom-global/register tests/builds/cjs.js",
+    "test:esm": "mocha --reporter dot -r jsdom-global/register -r babel-core/register tests/builds/esm.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha": "^1.2.0",
     "jquery": "^3.3.1",
+    "jsdom": "15.1.1",
+    "jsdom-global": "3.0.2",
     "mocha": "^5.0.0",
     "rollup": "^0.55.0",
     "rollup-plugin-commonjs": "^8.2.6",
