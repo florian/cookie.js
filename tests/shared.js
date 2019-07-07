@@ -18,10 +18,6 @@ exports.test = function(context) {
       cookie.empty();
     });
 
-    it('should be in the global scope', function () {
-      window.should.have.property('cookie');
-    });
-
     it('should be a function', function () {
       cookie.should.be.a('function');
     });
