@@ -1,0 +1,2 @@
+--reporter dot
+-r jsdom-global/register

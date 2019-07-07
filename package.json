@@ -12,9 +12,9 @@
     "build:watch": "rollup -c -w",
     "pretest": "npm run build",
     "test": "npm run test:umd && npm run test:cjs && npm run test:esm",
-    "test:umd": "mocha --reporter dot -r jsdom-global/register tests/builds/umd.js",
-    "test:cjs": "mocha --reporter dot -r jsdom-global/register tests/builds/cjs.js",
-    "test:esm": "mocha --reporter dot -r jsdom-global/register -r babel-core/register tests/builds/esm.js"
+    "test:umd": "mocha --opts tests/mocha.opts tests/builds/umd.js",
+    "test:cjs": "mocha --opts tests/mocha.opts tests/builds/cjs.js",
+    "test:esm": "mocha --opts tests/mocha.opts -r babel-core/register tests/builds/esm.js"
   },
   "repository": {
     "type": "git",
