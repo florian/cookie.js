@@ -1,7 +1,7 @@
 {
   "name": "cookie",
   "description": "A tiny JavaScript library that simplifies cookies.",
-  "main": "cookie.js",
+  "main": "dist/cookie.umd.js",
   "authors": [
     "Florian Hartmann <jscoderr@gmail.com>"
   ],
