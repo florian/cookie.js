@@ -1,6 +1,6 @@
 'use strict';
 
-// Copyright (c) 2015 Florian Hartmann, https://github.com/florian https://github.com/florian/cookie.js
+// Copyright (c) Florian Hartmann, https://github.com/florian https://github.com/florian/cookie.js
 
 var cookie = function() {
   return cookie.get.apply(cookie, arguments);
