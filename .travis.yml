@@ -1,4 +1,4 @@
 language: node_js
 node_js:
-  - 4.1
+  - 10.16.0
 before_install: npm install -g grunt-cli

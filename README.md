@@ -7,16 +7,15 @@ Working with cookies in JavaScript sucks. `document.cookie` is definitely one of
 
 ## Usage
 
-Download [cookie.min.js](https://raw.github.com/florian/cookie.js/master/cookie.min.js) and include it in your HTML document, this will add a global object called `cookie`:
+Download [cookie.umd.min.js](https://raw.github.com/florian/cookie.js/master/dist/cookie.umd.min.js) and include it in your HTML document, this will add a global object called `cookie`:
 
 ```html
-<script src="cookie.min.js"></script>
+<script src="cookie.umd.min.js"></script>
 ```
 
 Alternatively you can use a JavaScript package manager to add it to your project:
 ```sh
 $ bower install cookie --save
-$ jam install cookie
 $ npm install cookie_js --save
 ```
 
