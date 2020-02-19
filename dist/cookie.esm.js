@@ -82,7 +82,10 @@ cookie.set = function (key, value, options) {
     var secure = options.secure || this.defaults.secure ? ';secure' : '';
     if (options.secure === false) secure = '';
 
-    document.cookie = utils.encode(key) + '=' + utils.encode(value) + expires + path + domain + secure;
+    var sameSite = options.sameSite || this.defaults.sameSite;
+    sameSite = sameSite === 'None' || sameSite === 'Lax' || sameSite === 'Strict' ? ';sameSite=' + sameSite : '';
+
+    document.cookie = utils.encode(key) + '=' + utils.encode(value) + expires + path + domain + secure + sameSite;
   }
 
   return this; // Return the `cookie` object to make chaining possible.
