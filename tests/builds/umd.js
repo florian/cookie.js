@@ -5,6 +5,7 @@ const { JSDOM } = require('jsdom');
 const cookie = require('../../dist/cookie.umd.js');
 
 const shared = require('../shared');
+const sharedNoJsodom = require('../shared_no_jsdom');
 
 describe('UMD Build', () => {
   it('imports properly', () => {
@@ -20,4 +21,5 @@ describe('UMD Build', () => {
 
   // TODO: window.cookie cannot be passed since should is not injected
   shared.test({ cookie });
+  sharedNoJsodom.test({ cookie });
 })

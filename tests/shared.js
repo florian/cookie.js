@@ -5,6 +5,14 @@ exports.test = function(context) {
   const { cookie } = context;
 
   describe('cookie', function () {
+    before(function () {
+      this.jsdom = require('jsdom-global')();
+    });
+
+    after(function () {
+      this.jsdom();
+    })
+
     beforeEach(function () {
       cookie.empty();
       cookie.set({

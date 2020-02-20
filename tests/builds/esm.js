@@ -1,6 +1,7 @@
 import assert from 'assert';
 import cookie from '../../dist/cookie.esm.js';
 import shared from '../shared';
+import sharedNoJsodom from '../shared_no_jsdom';
 
 describe('ES Module Build', () => {
   it('imports properly', () => {
@@ -9,4 +10,5 @@ describe('ES Module Build', () => {
   });
 
   shared.test({ cookie });
+  sharedNoJsodom.test({ cookie });
 });
