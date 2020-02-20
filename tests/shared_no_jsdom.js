@@ -1,7 +1,7 @@
 exports.test = function(context) {
   const { cookie } = context;
 
-  describe("cookie", function() {
+  describe('cookie', function() {
     var mockStorage;
 
     before(function() {
@@ -24,11 +24,11 @@ exports.test = function(context) {
       mockStorage = [];
     });
 
-    describe("set", function() {
-      it("should set secure flag for a cookie", function() {
-        cookie.set("a", "1", { secure: true });
+    describe('set', function() {
+      it('should set secure flag for a cookie', function() {
+        cookie.set('a', '1', { secure: true });
 
-        document.cookie.should.deep.equal(["a=1;secure"]);
+        document.cookie.should.deep.equal(['a=1;secure']);
       });
     });
   });

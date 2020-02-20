@@ -11,7 +11,7 @@ exports.test = function(context) {
 
     after(function () {
       this.jsdom();
-    })
+    });
 
     beforeEach(function () {
       cookie.empty();
