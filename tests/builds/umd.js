@@ -5,12 +5,13 @@ const { JSDOM } = require('jsdom');
 const cookie = require('../../dist/cookie.umd.js');
 
 const shared = require('../shared');
+const sharedNoJsdom = require('../shared_no_jsdom');
 
 describe('UMD Build', () => {
   it('imports properly', () => {
     const cookieUmdFile = fs.readFileSync(path.join(__dirname, '../../dist/cookie.umd.js'));
-    const window = (new JSDOM(``, { runScripts: "dangerously" })).window;
-    const scriptEl = window.document.createElement("script");
+    const window = new JSDOM(``, { runScripts: 'dangerously' }).window;
+    const scriptEl = window.document.createElement('script');
     scriptEl.textContent = cookieUmdFile;
     window.document.body.appendChild(scriptEl);
     assert(window.cookie);
@@ -20,4 +21,5 @@ describe('UMD Build', () => {
 
   // TODO: window.cookie cannot be passed since should is not injected
   shared.test({ cookie });
-})
+  sharedNoJsdom.test({ cookie });
+});
