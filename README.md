@@ -69,6 +69,7 @@ The following fields can be added to the mentioned object:
 | `domain` |  A `string` that specifies the domain that can access the cookie. | The current domain. |
 | `path` | A `string` that limits the access of the cookie to that path. | The current path. |
 | `secure` | A `boolean` indicating whether the cookie shall only be accessible over a secure connection or not. | `false` |
+| `sameSite` | A `string` that specifies SameSite attribute that restricts cookie access based on the site context. | `null` |
 
 You can customize the default settings by manipulating `cookie.defaults`.
 
