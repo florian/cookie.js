@@ -83,7 +83,8 @@ cookie.set = function (key, value, options) {
     if (options.secure === false) secure = '';
 
     var sameSite = options.sameSite || this.defaults.sameSite;
-    sameSite = sameSite === 'None' || sameSite === 'Lax' || sameSite === 'Strict' ? ';sameSite=' + sameSite : '';
+    sameSite = sameSite ? ';SameSite=' + sameSite : '';
+    if (options.sameSite === null) sameSite = '';
 
     document.cookie = utils.encode(key) + '=' + utils.encode(value) + expires + path + domain + secure + sameSite;
   }
