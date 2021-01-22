@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.cookie = factory());
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
   // Copyright (c) Florian Hartmann, https://github.com/florian https://github.com/florian/cookie.js
 
@@ -178,4 +178,4 @@
 
   return cookie;
 
-}));
+})));

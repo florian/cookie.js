@@ -171,3 +171,4 @@ cookie.enabled = function () {
 };
 
 export default cookie;
+export { cookie };
