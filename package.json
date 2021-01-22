@@ -1,6 +1,6 @@
 {
   "name": "cookie_js",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A tiny JavaScript library that simplifies cookies.",
   "github": "https://github.com/florian/cookie.js",
   "license": "MIT",
