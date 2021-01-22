@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 // Copyright (c) Florian Hartmann, https://github.com/florian https://github.com/florian/cookie.js
 
 var cookie = function() {
@@ -174,5 +172,4 @@ cookie.enabled = function () {
   return ret;
 };
 
-exports.cookie = cookie;
-exports.default = cookie;
+module.exports = cookie;

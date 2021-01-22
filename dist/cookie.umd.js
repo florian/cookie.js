@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global.cookie = {}));
-}(this, function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = global || self, global.cookie = factory());
+}(this, function () { 'use strict';
 
   // Copyright (c) Florian Hartmann, https://github.com/florian https://github.com/florian/cookie.js
 
@@ -176,9 +176,6 @@
     return ret;
   };
 
-  exports.cookie = cookie;
-  exports.default = cookie;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
+  return cookie;
 
 }));
