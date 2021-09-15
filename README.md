@@ -229,3 +229,4 @@ For a decoding function for ColdFusion, see issue [#49](https://github.com/flori
 
 - [Contribute](https://github.com/florian/cookie.js/wiki/Contribute)
 - [Changelog](https://github.com/florian/cookie.js/wiki/Changelog)
+- ## thanks
